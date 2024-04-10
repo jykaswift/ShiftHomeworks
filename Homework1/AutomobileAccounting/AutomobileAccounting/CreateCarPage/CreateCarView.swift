@@ -258,19 +258,13 @@ extension CreateCarView {
         return true
     }
 
-    func getCar() -> Car {
-        let manufacturer = manufacturerTextField.text ?? ""
-        let model = modelTextField.text ?? "model"
-        let body = Body(rawValue: bodyTextField.text ?? "") ?? .sedan
-        let year = Int(yearOfIssueTextField.text ?? "")
-        let number = carNumberTextField.text
-
-        return Car(
-            manufacturer: manufacturer,
-            model: model,
-            body: body,
-            yearOfIssue: year,
-            carNumber: number
+    func getData() -> CarDTO {
+        return CarDTO(
+            manufacturer: manufacturerTextField.text,
+            model: modelTextField.text,
+            body: bodyTextField.text,
+            yearOfIssue: yearOfIssueTextField.text,
+            carNumber: carNumberTextField.text
         )
     }
 }

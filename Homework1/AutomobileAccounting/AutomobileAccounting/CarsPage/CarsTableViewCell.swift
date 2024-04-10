@@ -62,9 +62,9 @@ class CarsTableViewCell: UITableViewCell {
         bodyLabel.text = "Тип кузова: \(car.body.rawValue)"
 
         if let year = car.yearOfIssue {
-            yearOfIssueLabel.text = "Лет эксплоатации: \(year)"
+            yearOfIssueLabel.text = "Год выпуска: \(year)"
         } else {
-            yearOfIssueLabel.text = "Лет эксплоатации: -"
+            yearOfIssueLabel.text = "Год выпуска: -"
         }
 
         if let carNumber = car.carNumber {

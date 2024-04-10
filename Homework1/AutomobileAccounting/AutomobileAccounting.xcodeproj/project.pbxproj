@@ -14,11 +14,12 @@
 		F9BF880E2BC59187002F66A6 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = F9BF880D2BC59187002F66A6 /* Base */; };
 		F9BF88172BC59534002F66A6 /* CarsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9BF88162BC59534002F66A6 /* CarsView.swift */; };
 		F9BF88192BC59663002F66A6 /* CarsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9BF88182BC59663002F66A6 /* CarsTableViewCell.swift */; };
-		F9BF881B2BC59773002F66A6 /* DataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9BF881A2BC59773002F66A6 /* DataSource.swift */; };
+		F9BF881B2BC59773002F66A6 /* CarDatasource.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9BF881A2BC59773002F66A6 /* CarDatasource.swift */; };
 		F9BF881D2BC597B3002F66A6 /* Car.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9BF881C2BC597B3002F66A6 /* Car.swift */; };
 		F9BF88212BC5D67E002F66A6 /* CreateCarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9BF88202BC5D67E002F66A6 /* CreateCarViewController.swift */; };
 		F9BF88242BC5D75A002F66A6 /* CreateCarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9BF88232BC5D75A002F66A6 /* CreateCarView.swift */; };
-		F9BF88262BC61488002F66A6 /* Validator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9BF88252BC61488002F66A6 /* Validator.swift */; };
+		F9BF88282BC61A46002F66A6 /* CarDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9BF88272BC61A46002F66A6 /* CarDTO.swift */; };
+		F9BF882A2BC61CAA002F66A6 /* CarValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9BF88292BC61CAA002F66A6 /* CarValidator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,11 +32,12 @@
 		F9BF880F2BC59187002F66A6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F9BF88162BC59534002F66A6 /* CarsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarsView.swift; sourceTree = "<group>"; };
 		F9BF88182BC59663002F66A6 /* CarsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarsTableViewCell.swift; sourceTree = "<group>"; };
-		F9BF881A2BC59773002F66A6 /* DataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataSource.swift; sourceTree = "<group>"; };
+		F9BF881A2BC59773002F66A6 /* CarDatasource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarDatasource.swift; sourceTree = "<group>"; };
 		F9BF881C2BC597B3002F66A6 /* Car.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Car.swift; sourceTree = "<group>"; };
 		F9BF88202BC5D67E002F66A6 /* CreateCarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateCarViewController.swift; sourceTree = "<group>"; };
 		F9BF88232BC5D75A002F66A6 /* CreateCarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateCarView.swift; sourceTree = "<group>"; };
-		F9BF88252BC61488002F66A6 /* Validator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Validator.swift; sourceTree = "<group>"; };
+		F9BF88272BC61A46002F66A6 /* CarDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarDTO.swift; sourceTree = "<group>"; };
+		F9BF88292BC61CAA002F66A6 /* CarValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarValidator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -93,9 +95,10 @@
 		F9BF881F2BC5D633002F66A6 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				F9BF881A2BC59773002F66A6 /* DataSource.swift */,
+				F9BF881A2BC59773002F66A6 /* CarDatasource.swift */,
 				F9BF881C2BC597B3002F66A6 /* Car.swift */,
-				F9BF88252BC61488002F66A6 /* Validator.swift */,
+				F9BF88272BC61A46002F66A6 /* CarDTO.swift */,
+				F9BF88292BC61CAA002F66A6 /* CarValidator.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -202,11 +205,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F9BF881B2BC59773002F66A6 /* DataSource.swift in Sources */,
+				F9BF881B2BC59773002F66A6 /* CarDatasource.swift in Sources */,
 				F9BF88212BC5D67E002F66A6 /* CreateCarViewController.swift in Sources */,
-				F9BF88262BC61488002F66A6 /* Validator.swift in Sources */,
 				F9BF88062BC59186002F66A6 /* CarsViewController.swift in Sources */,
 				F9BF88172BC59534002F66A6 /* CarsView.swift in Sources */,
+				F9BF882A2BC61CAA002F66A6 /* CarValidator.swift in Sources */,
+				F9BF88282BC61A46002F66A6 /* CarDTO.swift in Sources */,
 				F9BF88022BC59186002F66A6 /* AppDelegate.swift in Sources */,
 				F9BF88042BC59186002F66A6 /* SceneDelegate.swift in Sources */,
 				F9BF881D2BC597B3002F66A6 /* Car.swift in Sources */,

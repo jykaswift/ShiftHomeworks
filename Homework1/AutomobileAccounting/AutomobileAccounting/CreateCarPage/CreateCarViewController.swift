@@ -32,21 +32,19 @@ class CreateCarViewController: UIViewController {
 // MARK: NavBar
 extension CreateCarViewController {
     func setupNavigationBar() {
-
         let saveAction = UIAction {[weak self] _ in
             guard let self else { return }
-            guard createCarView.isInputsValid() else {
+            let carValidator = CarValidator()
+            let carDTO = createCarView.getData()
+            guard let car = carValidator.validateCarData(with: carDTO) else {
                 showValidErrorAlert()
                 return
             }
-            let car = createCarView.getCar()
             delegate?.saveCar(car: car)
             navigationController?.popViewController(animated: true)
-
         }
 
         navigationItem.rightBarButtonItem = UIBarButtonItem(systemItem: .save, primaryAction: saveAction)
-
     }
 
     private func showValidErrorAlert() {

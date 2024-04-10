@@ -53,18 +53,20 @@ extension CarsViewController {
     private func createSortMenu() -> UIMenu {
         var menuItems: [UIAction] = []
 
-        let allCase = UIAction(title: "Все", state: .on) { [weak carsView, weak datasource, weak self] _ in
+        let allAction = UIAction(title: "Все", state: .on) { [weak carsView, weak datasource, weak self] _ in
             guard let carsView, let datasource, let self else { return }
+            datasource.setSortedState(with: nil)
             carsView.updateTableDatasource(with: datasource.getDatasource(), animated: true)
             self.navigationItem.leftBarButtonItem?.title = "Сортировка"
         }
 
-        menuItems.append(allCase)
+        menuItems.append(allAction)
 
         for body in Body.allCases {
             let action = UIAction(title: body.rawValue) { [weak carsView, weak datasource, weak self] _ in
                 guard let carsView, let datasource, let self else { return }
-                carsView.updateTableDatasource(with: datasource.getSortedDatasource(with: body), animated: true)
+                datasource.setSortedState(with: body)
+                carsView.updateTableDatasource(with: datasource.getSortedDatasource(), animated: true)
                 self.navigationItem.leftBarButtonItem?.title = body.rawValue
             }
             menuItems.append(action)
@@ -78,6 +80,6 @@ extension CarsViewController {
 extension CarsViewController: CreateCarDelegate {
     func saveCar(car: Car) {
         datasource.addCar(car: car)
-        carsView.updateTableDatasource(with: datasource.getDatasource(), animated: false)
+        carsView.updateTableDatasource(with: datasource.getSortedDatasource(), animated: false)
     }
 }
