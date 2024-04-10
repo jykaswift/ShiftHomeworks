@@ -52,28 +52,32 @@ extension CarsViewController {
 
     private func createSortMenu() -> UIMenu {
         var menuItems: [UIAction] = []
-
-        let allAction = UIAction(title: "Все", state: .on) { [weak carsView, weak datasource, weak self] _ in
-            guard let carsView, let datasource, let self else { return }
-            datasource.setSortedState(with: nil)
-            carsView.updateTableDatasource(with: datasource.getDatasource(), animated: true)
-            self.navigationItem.leftBarButtonItem?.title = "Сортировка"
-        }
+        let allAction = createSortActionWith(title: "Все", state: .on)
 
         menuItems.append(allAction)
 
         for body in Body.allCases {
-            let action = UIAction(title: body.rawValue) { [weak carsView, weak datasource, weak self] _ in
-                guard let carsView, let datasource, let self else { return }
-                datasource.setSortedState(with: body)
-                carsView.updateTableDatasource(with: datasource.getSortedDatasource(), animated: true)
-                self.navigationItem.leftBarButtonItem?.title = body.rawValue
-            }
+            let action = createSortActionWith(title: body.rawValue, state: .off, sortType: body)
             menuItems.append(action)
         }
 
         let menu = UIMenu(options: .singleSelection, children: menuItems)
         return menu
+    }
+
+    private func createSortActionWith(
+        title: String,
+        state: UIMenuElement.State,
+        sortType: Body? = nil
+    ) -> UIAction {
+        let action = UIAction(title: title, state: state) { [weak carsView, weak datasource, weak self] _ in
+            guard let carsView, let datasource, let self else { return }
+            datasource.setSortedState(with: sortType)
+            carsView.updateTableDatasource(with: datasource.getSortedDatasource(), animated: true)
+            self.navigationItem.leftBarButtonItem?.title = "Сортировка"
+        }
+
+        return action
     }
 }
 
