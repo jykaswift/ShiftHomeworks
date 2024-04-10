@@ -70,11 +70,11 @@ extension CarsViewController {
         state: UIMenuElement.State,
         sortType: Body? = nil
     ) -> UIAction {
-        let action = UIAction(title: title, state: state) { [weak carsView, weak datasource, weak self] _ in
-            guard let carsView, let datasource, let self else { return }
+        let action = UIAction(title: title, state: state) { [weak self] _ in
+            guard let self else { return }
             datasource.setSortedState(with: sortType)
             carsView.updateTableDatasource(with: datasource.getSortedDatasource(), animated: true)
-            self.navigationItem.leftBarButtonItem?.title = "Сортировка"
+            self.navigationItem.leftBarButtonItem?.title = title
         }
 
         return action
