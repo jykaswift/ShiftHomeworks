@@ -66,11 +66,13 @@ extension CarsView {
 // MARK: TableView Datasource
 extension CarsView {
     private func setupDatasource() {
-        tableViewDataSource = UITableViewDiffableDataSource(tableView: tableView, cellProvider: { tableView, indexPath, car in
-            let cell = tableView.dequeueReusableCell(withIdentifier: CarsTableViewCell.identifier, for: indexPath) as? CarsTableViewCell
+        tableViewDataSource = UITableViewDiffableDataSource(tableView: tableView) { tableView, indexPath, car in
+            let cell = tableView.dequeueReusableCell(
+                withIdentifier: CarsTableViewCell.identifier, for: indexPath
+            ) as? CarsTableViewCell
             cell?.setupCell(with: car)
             return cell
-        })
+        }
     }
 
     func updateTableDatasource(with cars: [Car], animated: Bool) {
