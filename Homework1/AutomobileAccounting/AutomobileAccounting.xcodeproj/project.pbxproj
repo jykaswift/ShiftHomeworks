@@ -18,6 +18,7 @@
 		F9BF881D2BC597B3002F66A6 /* Car.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9BF881C2BC597B3002F66A6 /* Car.swift */; };
 		F9BF88212BC5D67E002F66A6 /* CreateCarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9BF88202BC5D67E002F66A6 /* CreateCarViewController.swift */; };
 		F9BF88242BC5D75A002F66A6 /* CreateCarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9BF88232BC5D75A002F66A6 /* CreateCarView.swift */; };
+		F9BF88262BC61488002F66A6 /* Validator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9BF88252BC61488002F66A6 /* Validator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +35,7 @@
 		F9BF881C2BC597B3002F66A6 /* Car.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Car.swift; sourceTree = "<group>"; };
 		F9BF88202BC5D67E002F66A6 /* CreateCarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateCarViewController.swift; sourceTree = "<group>"; };
 		F9BF88232BC5D75A002F66A6 /* CreateCarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateCarView.swift; sourceTree = "<group>"; };
+		F9BF88252BC61488002F66A6 /* Validator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Validator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -93,6 +95,7 @@
 			children = (
 				F9BF881A2BC59773002F66A6 /* DataSource.swift */,
 				F9BF881C2BC597B3002F66A6 /* Car.swift */,
+				F9BF88252BC61488002F66A6 /* Validator.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -201,6 +204,7 @@
 			files = (
 				F9BF881B2BC59773002F66A6 /* DataSource.swift in Sources */,
 				F9BF88212BC5D67E002F66A6 /* CreateCarViewController.swift in Sources */,
+				F9BF88262BC61488002F66A6 /* Validator.swift in Sources */,
 				F9BF88062BC59186002F66A6 /* CarsViewController.swift in Sources */,
 				F9BF88172BC59534002F66A6 /* CarsView.swift in Sources */,
 				F9BF88022BC59186002F66A6 /* AppDelegate.swift in Sources */,

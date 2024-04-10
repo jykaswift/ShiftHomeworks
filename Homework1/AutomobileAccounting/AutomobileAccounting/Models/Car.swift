@@ -19,4 +19,6 @@ struct Car: Hashable {
 enum Body: String, CaseIterable {
     case sedan = "Седан"
     case cabriolet = "Кабриолет"
+    case hatchback = "Хэтчбэк"
+    case limousine = "Лимузин"
 }

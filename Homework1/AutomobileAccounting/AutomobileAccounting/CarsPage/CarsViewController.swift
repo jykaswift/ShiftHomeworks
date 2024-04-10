@@ -23,7 +23,7 @@ class CarsViewController: UIViewController {
     }
 
     private func setupView() {
-        carsView.updateTableDatasource(with: datasource.getDatasource())
+        carsView.updateTableDatasource(with: datasource.getDatasource(), animated: true)
     }
 
 }
@@ -32,27 +32,39 @@ class CarsViewController: UIViewController {
 extension CarsViewController {
     private func setupNavigationBar() {
 
-        let menu = createSortMenu()
+        let sortMenu = createSortMenu()
+        let sortButton = UIBarButtonItem(title: "Сортировка", menu: sortMenu)
+        navigationItem.leftBarButtonItem = sortButton
 
-        let barItem = UIBarButtonItem(title: "Сортировка", menu: menu)
-        navigationItem.leftBarButtonItem = barItem
+        let createCarButton = UIBarButtonItem(
+            barButtonSystemItem: .add,
+            target: self,
+            action: #selector(showCreateCarController)
+        )
+        navigationItem.rightBarButtonItem = createCarButton
+    }
+
+    @objc private func showCreateCarController() {
+        let createCarController = CreateCarViewController()
+        createCarController.delegate = self
+        navigationController?.pushViewController(createCarController, animated: true)
     }
 
     private func createSortMenu() -> UIMenu {
         var menuItems: [UIAction] = []
 
-        let allCase = UIAction(title: "Все", state: .on) { [weak carsView, weak datasource, weak self] (_) in
+        let allCase = UIAction(title: "Все", state: .on) { [weak carsView, weak datasource, weak self] _ in
             guard let carsView, let datasource, let self else { return }
-            carsView.updateTableDatasource(with: datasource.getDatasource())
+            carsView.updateTableDatasource(with: datasource.getDatasource(), animated: true)
             self.navigationItem.leftBarButtonItem?.title = "Сортировка"
         }
 
         menuItems.append(allCase)
 
         for body in Body.allCases {
-            let action = UIAction(title: body.rawValue) { [weak carsView, weak datasource, weak self] (_) in
+            let action = UIAction(title: body.rawValue) { [weak carsView, weak datasource, weak self] _ in
                 guard let carsView, let datasource, let self else { return }
-                carsView.updateTableDatasource(with: datasource.getSortedDatasource(with: body))
+                carsView.updateTableDatasource(with: datasource.getSortedDatasource(with: body), animated: true)
                 self.navigationItem.leftBarButtonItem?.title = body.rawValue
             }
             menuItems.append(action)
@@ -63,3 +75,9 @@ extension CarsViewController {
     }
 }
 
+extension CarsViewController: CreateCarDelegate {
+    func saveCar(car: Car) {
+        datasource.addCar(car: car)
+        carsView.updateTableDatasource(with: datasource.getDatasource(), animated: false)
+    }
+}

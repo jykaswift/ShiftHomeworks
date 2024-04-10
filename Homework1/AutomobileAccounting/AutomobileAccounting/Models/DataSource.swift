@@ -24,4 +24,8 @@ class CarDatasource {
             car.body == bodyType
         }
     }
+
+    func addCar(car: Car) {
+        datasouce.append(car)
+    }
 }

@@ -57,18 +57,18 @@ class CarsTableViewCell: UITableViewCell {
     }()
 
     func setupCell(with car: Car) {
-        manufacturerLabel.text = "Manufacturer: \(car.manufacturer)"
-        modelLabel.text = "Model: \(car.model)"
-        bodyLabel.text = "Body type: \(car.body.rawValue)"
+        manufacturerLabel.text = "Марка: \(car.manufacturer)"
+        modelLabel.text = "Модель: \(car.model)"
+        bodyLabel.text = "Тип кузова: \(car.body.rawValue)"
 
         if let year = car.yearOfIssue {
-            yearOfIssueLabel.text = "Year of issue: \(year)"
+            yearOfIssueLabel.text = "Лет эксплоатации: \(year)"
         } else {
-            yearOfIssueLabel.text = "Year of issue: -"
+            yearOfIssueLabel.text = "Лет эксплоатации: -"
         }
 
         if let carNumber = car.carNumber {
-            carNumberLabel.text = "Car number: \(carNumber)"
+            carNumberLabel.text = "Гос. номер: \(carNumber)"
         } else {
             carNumberLabel.isHidden = true
         }

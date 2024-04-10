@@ -69,16 +69,15 @@ extension CarsView {
         tableViewDataSource = UITableViewDiffableDataSource(tableView: tableView, cellProvider: { tableView, indexPath, car in
             let cell = tableView.dequeueReusableCell(withIdentifier: CarsTableViewCell.identifier, for: indexPath) as? CarsTableViewCell
             cell?.setupCell(with: car)
-            print(type(of: cell))
             return cell
         })
     }
 
-    func updateTableDatasource(with cars: [Car]) {
+    func updateTableDatasource(with cars: [Car], animated: Bool) {
         var snapshop = NSDiffableDataSourceSnapshot<TableSection, Car>()
         snapshop.appendSections([.main])
         snapshop.appendItems(cars, toSection: .main)
-        tableViewDataSource?.apply(snapshop, animatingDifferences: true)
+        tableViewDataSource?.apply(snapshop, animatingDifferences: animated)
     }
 }
 
