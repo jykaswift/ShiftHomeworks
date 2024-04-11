@@ -46,7 +46,12 @@ class CarValidator {
 
     private func validateYearOfIssue(_ yearOfIssue: String?) -> Int? {
         guard let yearOfIssue = validateNilOrEmptyString(value: yearOfIssue) else { return nil }
-        guard let intYearOfIssue = Int(yearOfIssue) else { return nil }
+        let calendar = Calendar.current
+        let currentYear = calendar.component(.year, from: Date())
+        let dateFirstCar = 1885
+        guard let intYearOfIssue = Int(yearOfIssue), (dateFirstCar...currentYear).contains(intYearOfIssue)
+        else { return nil }
+
         return intYearOfIssue
     }
 
