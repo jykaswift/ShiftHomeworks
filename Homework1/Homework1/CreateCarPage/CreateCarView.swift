@@ -65,7 +65,7 @@ class CreateCarView: UIView {
         bodyTextField.placeholder = "Кузов..."
         bodyTextField.inputView = bodyPickerView
         bodyTextField.borderStyle = .roundedRect
-        bodyTextField.inputAccessoryView = createBodyAccessoryView()
+        bodyTextField.inputAccessoryView = self.createBodyAccessoryView()
         return bodyTextField
     }()
 
@@ -104,7 +104,7 @@ class CreateCarView: UIView {
 
     override init(frame: CGRect) {
         super.init(frame: .zero)
-        setupUI()
+        self.setupUI()
     }
 
     required init?(coder: NSCoder) {
@@ -117,8 +117,8 @@ class CreateCarView: UIView {
 extension CreateCarView {
     private func setupUI() {
         backgroundColor = .white
-        addSubviews()
-        setupLayout()
+        self.addSubviews()
+        self.setupLayout()
 
     }
 
@@ -247,17 +247,6 @@ extension CreateCarView: UIPickerViewDelegate, UIPickerViewDataSource {
 
 // MARK: Validate Input
 extension CreateCarView {
-    func isInputsValid() -> Bool {
-        let requiredTextFields = [manufacturerTextField, bodyTextField, modelTextField]
-        for textField in requiredTextFields {
-            guard let text = textField.text, !text.isEmpty else {
-                return false
-            }
-
-        }
-        return true
-    }
-
     func getData() -> CarDTO {
         return CarDTO(
             manufacturer: manufacturerTextField.text,
