@@ -9,11 +9,11 @@ import Foundation
 
 class CarValidator {
     func validateCarData(with carDTO: CarDTO) -> Car? {
-        let manufacturer = validateManufacturer(carDTO.manufacturer)
-        let model = validateModel(carDTO.model)
-        let body = validateBody(carDTO.body)
-        let yearOfIssue = validateYearOfIssue(carDTO.yearOfIssue)
-        let carNumber = validateCarNumber(carDTO.carNumber)
+        let manufacturer = self.validateManufacturer(carDTO.manufacturer)
+        let model = self.validateModel(carDTO.model)
+        let body = self.validateBody(carDTO.body)
+        let yearOfIssue = self.validateYearOfIssue(carDTO.yearOfIssue)
+        let carNumber = self.validateCarNumber(carDTO.carNumber)
         guard let model, let body, let manufacturer
         else { return nil }
 
@@ -27,12 +27,12 @@ class CarValidator {
     }
 
     private func validateManufacturer(_ manufacturer: String?) -> String? {
-        guard let manufacturer = validateNilOrEmptyString(value: manufacturer) else { return nil }
+        guard let manufacturer = self.validateNilOrEmptyString(value: manufacturer) else { return nil }
         return manufacturer
     }
 
     private func validateModel(_ model: String?) -> String? {
-        guard let model = validateNilOrEmptyString(value: model) else { return nil }
+        guard let model = self.validateNilOrEmptyString(value: model) else { return nil }
         return model
     }
 
@@ -45,7 +45,7 @@ class CarValidator {
     }
 
     private func validateYearOfIssue(_ yearOfIssue: String?) -> Int? {
-        guard let yearOfIssue = validateNilOrEmptyString(value: yearOfIssue) else { return nil }
+        guard let yearOfIssue = self.validateNilOrEmptyString(value: yearOfIssue) else { return nil }
         let calendar = Calendar.current
         let currentYear = calendar.component(.year, from: Date())
         let dateFirstCar = 1885
@@ -56,7 +56,7 @@ class CarValidator {
     }
 
     private func validateCarNumber(_ carNumber: String?) -> String? {
-        guard let carNumber = validateNilOrEmptyString(value: carNumber) else { return nil }
+        guard let carNumber = self.validateNilOrEmptyString(value: carNumber) else { return nil }
         return carNumber
     }
 

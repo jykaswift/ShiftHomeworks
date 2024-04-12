@@ -26,7 +26,7 @@ class CarsView: UIView {
 
     override init(frame: CGRect) {
         super.init(frame: .zero)
-        setupUI()
+        self.setupUI()
     }
 
     required init?(coder: NSCoder) {
@@ -39,9 +39,9 @@ class CarsView: UIView {
 extension CarsView {
     private func setupUI() {
         backgroundColor = .white
-        addSubviews()
-        setupLayout()
-        setupDatasource()
+        self.addSubviews()
+        self.setupLayout()
+        self.setupDatasource()
 
     }
 

@@ -73,7 +73,7 @@ class CarsTableViewCell: UITableViewCell {
             carNumberLabel.isHidden = true
         }
 
-        setupUI()
+        self.setupUI()
     }
 
 }
@@ -81,8 +81,8 @@ class CarsTableViewCell: UITableViewCell {
 // MARK: Setup UI
 extension CarsTableViewCell {
     private func setupUI() {
-        addSubviews()
-        setupLayout()
+        self.addSubviews()
+        self.setupLayout()
     }
 
     private func addSubviews() {

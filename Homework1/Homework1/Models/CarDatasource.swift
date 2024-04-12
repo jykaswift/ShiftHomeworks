@@ -21,7 +21,7 @@ class CarDatasource {
     }
 
     func getSortedDatasource() -> [Car] {
-        guard let sortedState else { return getDatasource() }
+        guard let sortedState else { return self.getDatasource() }
 
         return datasouce.filter { car in
             car.body == sortedState

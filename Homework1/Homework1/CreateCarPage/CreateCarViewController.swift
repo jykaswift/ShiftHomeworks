@@ -23,10 +23,9 @@ class CreateCarViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupNavigationBar()
+        self.setupNavigationBar()
 
     }
-
 }
 
 // MARK: NavBar
@@ -37,7 +36,7 @@ extension CreateCarViewController {
             let carValidator = CarValidator()
             let carDTO = createCarView.getData()
             guard let car = carValidator.validateCarData(with: carDTO) else {
-                showValidErrorAlert()
+                self.showValidErrorAlert()
                 return
             }
             delegate?.saveCar(car: car)

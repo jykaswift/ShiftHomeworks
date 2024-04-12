@@ -18,8 +18,8 @@ class CarsViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupView()
-        setupNavigationBar()
+        self.setupView()
+        self.setupNavigationBar()
     }
 
     private func setupView() {
@@ -32,7 +32,7 @@ class CarsViewController: UIViewController {
 extension CarsViewController {
     private func setupNavigationBar() {
 
-        let sortMenu = createSortMenu()
+        let sortMenu = self.createSortMenu()
         let sortButton = UIBarButtonItem(title: "Сортировка", menu: sortMenu)
         navigationItem.leftBarButtonItem = sortButton
 
@@ -52,12 +52,12 @@ extension CarsViewController {
 
     private func createSortMenu() -> UIMenu {
         var menuItems: [UIAction] = []
-        let allAction = createSortActionWith(title: "Все", state: .on)
+        let allAction = self.createSortActionWith(title: "Все", state: .on)
 
         menuItems.append(allAction)
 
         for body in Body.allCases {
-            let action = createSortActionWith(title: body.rawValue, state: .off, sortType: body)
+            let action = self.createSortActionWith(title: body.rawValue, state: .off, sortType: body)
             menuItems.append(action)
         }
 
