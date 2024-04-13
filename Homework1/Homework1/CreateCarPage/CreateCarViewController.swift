@@ -29,7 +29,7 @@ class CreateCarViewController: UIViewController {
 }
 
 // MARK: NavBar
-extension CreateCarViewController {
+private extension CreateCarViewController {
     func setupNavigationBar() {
         let saveAction = UIAction {[weak self] _ in
             guard let self else { return }
@@ -46,7 +46,7 @@ extension CreateCarViewController {
         navigationItem.rightBarButtonItem = UIBarButtonItem(systemItem: .save, primaryAction: saveAction)
     }
 
-    private func showValidErrorAlert() {
+    func showValidErrorAlert() {
         let validErrorAlert = UIAlertController(
             title: "Не все поля заполнены",
             message: "Пожалуйста заполните все поля отмеченные звездочкой",

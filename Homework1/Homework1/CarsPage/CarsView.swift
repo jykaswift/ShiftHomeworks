@@ -36,8 +36,8 @@ class CarsView: UIView {
 }
 
 // MARK: Setup UI
-extension CarsView {
-    private func setupUI() {
+ private extension CarsView {
+    func setupUI() {
         backgroundColor = .white
         self.addSubviews()
         self.setupLayout()
@@ -45,7 +45,7 @@ extension CarsView {
 
     }
 
-    private func addSubviews() {
+    func addSubviews() {
         let views = [tableView]
 
         for view in views {
@@ -53,7 +53,7 @@ extension CarsView {
         }
     }
 
-    private func setupLayout() {
+    func setupLayout() {
         NSLayoutConstraint.activate([
             tableView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor),
             tableView.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor),

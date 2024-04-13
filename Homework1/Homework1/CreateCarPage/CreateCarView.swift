@@ -114,15 +114,15 @@ class CreateCarView: UIView {
 }
 
 // MARK: Setup UI
-extension CreateCarView {
-    private func setupUI() {
+private extension CreateCarView {
+    func setupUI() {
         backgroundColor = .white
         self.addSubviews()
         self.setupLayout()
 
     }
 
-    private func addSubviews() {
+    func addSubviews() {
         let views = [
             manufacturerLabel,
             manufacturerTextField,
@@ -141,7 +141,7 @@ extension CreateCarView {
         }
     }
 
-    private func setupLayout() {
+    func setupLayout() {
         directionalLayoutMargins = NSDirectionalEdgeInsets(top: 10, leading: 10, bottom: 10, trailing: 10)
         let spacing: CGFloat = 5
         let margin: CGFloat = 10
@@ -202,7 +202,7 @@ extension CreateCarView {
         ])
     }
 
-    private func createBodyAccessoryView() -> UIToolbar {
+    func createBodyAccessoryView() -> UIToolbar {
         let toolbar = UIToolbar()
         toolbar.sizeToFit()
         toolbar.translatesAutoresizingMaskIntoConstraints = false

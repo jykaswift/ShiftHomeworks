@@ -29,8 +29,8 @@ class CarsViewController: UIViewController {
 }
 
 // MARK: Navigation bar
-extension CarsViewController {
-    private func setupNavigationBar() {
+private extension CarsViewController {
+    func setupNavigationBar() {
 
         let sortMenu = self.createSortMenu()
         let sortButton = UIBarButtonItem(title: "Сортировка", menu: sortMenu)
@@ -44,13 +44,13 @@ extension CarsViewController {
         navigationItem.rightBarButtonItem = createCarButton
     }
 
-    @objc private func showCreateCarController() {
+    @objc func showCreateCarController() {
         let createCarController = CreateCarViewController()
         createCarController.delegate = self
         navigationController?.pushViewController(createCarController, animated: true)
     }
 
-    private func createSortMenu() -> UIMenu {
+    func createSortMenu() -> UIMenu {
         var menuItems: [UIAction] = []
         let allAction = self.createSortActionWith(title: "Все", state: .on)
 
