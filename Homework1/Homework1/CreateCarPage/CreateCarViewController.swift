@@ -31,7 +31,7 @@ class CreateCarViewController: UIViewController {
 // MARK: NavBar
 private extension CreateCarViewController {
     func setupNavigationBar() {
-        let saveAction = UIAction {[weak self] _ in
+        let saveAction = UIAction { [weak self] _ in
             guard let self else { return }
             let carValidator = CarValidator()
             let carDTO = createCarView.getData()
