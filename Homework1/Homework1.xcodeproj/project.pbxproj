@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		F9BF88022BC59186002F66A6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9BF88012BC59186002F66A6 /* AppDelegate.swift */; };
 		F9BF88042BC59186002F66A6 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9BF88032BC59186002F66A6 /* SceneDelegate.swift */; };
 		F9BF88062BC59186002F66A6 /* CarsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9BF88052BC59186002F66A6 /* CarsViewController.swift */; };
 		F9BF880B2BC59187002F66A6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F9BF880A2BC59187002F66A6 /* Assets.xcassets */; };
@@ -20,11 +19,11 @@
 		F9BF88242BC5D75A002F66A6 /* CreateCarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9BF88232BC5D75A002F66A6 /* CreateCarView.swift */; };
 		F9BF88282BC61A46002F66A6 /* CarDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9BF88272BC61A46002F66A6 /* CarDTO.swift */; };
 		F9BF882A2BC61CAA002F66A6 /* CarValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9BF88292BC61CAA002F66A6 /* CarValidator.swift */; };
+		F9CB60EC2BCA57F1006DB657 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9CB60EB2BCA57F1006DB657 /* AppDelegate.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		F9BF87FE2BC59186002F66A6 /* Homework1.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Homework1.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		F9BF88012BC59186002F66A6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F9BF88032BC59186002F66A6 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		F9BF88052BC59186002F66A6 /* CarsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarsViewController.swift; sourceTree = "<group>"; };
 		F9BF880A2BC59187002F66A6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -38,6 +37,7 @@
 		F9BF88232BC5D75A002F66A6 /* CreateCarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateCarView.swift; sourceTree = "<group>"; };
 		F9BF88272BC61A46002F66A6 /* CarDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarDTO.swift; sourceTree = "<group>"; };
 		F9BF88292BC61CAA002F66A6 /* CarValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarValidator.swift; sourceTree = "<group>"; };
+		F9CB60EB2BCA57F1006DB657 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,11 +73,11 @@
 				F9BF88222BC5D68D002F66A6 /* CreateCarPage */,
 				F9BF881F2BC5D633002F66A6 /* Models */,
 				F9BF881E2BC5D605002F66A6 /* CarsPage */,
-				F9BF88012BC59186002F66A6 /* AppDelegate.swift */,
 				F9BF88032BC59186002F66A6 /* SceneDelegate.swift */,
 				F9BF880A2BC59187002F66A6 /* Assets.xcassets */,
 				F9BF880C2BC59187002F66A6 /* LaunchScreen.storyboard */,
 				F9BF880F2BC59187002F66A6 /* Info.plist */,
+				F9CB60EB2BCA57F1006DB657 /* AppDelegate.swift */,
 			);
 			path = Homework1;
 			sourceTree = "<group>";
@@ -182,13 +182,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F9CB60EC2BCA57F1006DB657 /* AppDelegate.swift in Sources */,
 				F9BF881B2BC59773002F66A6 /* CarDatasource.swift in Sources */,
 				F9BF88212BC5D67E002F66A6 /* CreateCarViewController.swift in Sources */,
 				F9BF88062BC59186002F66A6 /* CarsViewController.swift in Sources */,
 				F9BF88172BC59534002F66A6 /* CarsView.swift in Sources */,
 				F9BF882A2BC61CAA002F66A6 /* CarValidator.swift in Sources */,
 				F9BF88282BC61A46002F66A6 /* CarDTO.swift in Sources */,
-				F9BF88022BC59186002F66A6 /* AppDelegate.swift in Sources */,
 				F9BF88042BC59186002F66A6 /* SceneDelegate.swift in Sources */,
 				F9BF881D2BC597B3002F66A6 /* Car.swift in Sources */,
 				F9BF88192BC59663002F66A6 /* CarsTableViewCell.swift in Sources */,
