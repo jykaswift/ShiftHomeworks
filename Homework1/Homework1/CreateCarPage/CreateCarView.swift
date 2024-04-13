@@ -119,26 +119,19 @@ private extension CreateCarView {
         backgroundColor = .white
         self.addSubviews()
         self.setupLayout()
-
     }
 
     func addSubviews() {
-        let views = [
-            manufacturerLabel,
-            manufacturerTextField,
-            modelLabel,
-            modelTextField,
-            bodyLabel,
-            bodyTextField,
-            yearOfIssueLabel,
-            yearOfIssueTextField,
-            carNumberLabel,
-            carNumberTextField
-        ]
-
-        for view in views {
-            addSubview(view)
-        }
+        addSubview(manufacturerLabel)
+        addSubview(manufacturerTextField)
+        addSubview(modelLabel)
+        addSubview(modelTextField)
+        addSubview(bodyLabel)
+        addSubview(bodyTextField)
+        addSubview(yearOfIssueLabel)
+        addSubview(yearOfIssueTextField)
+        addSubview(carNumberLabel)
+        addSubview(carNumberTextField)
     }
 
     func setupLayout() {

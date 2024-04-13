@@ -86,20 +86,13 @@ extension CarsTableViewCell {
     }
 
     private func addSubviews() {
-
         contentView.addSubview(cellStackView)
 
-        let views = [
-            manufacturerLabel,
-            modelLabel,
-            bodyLabel,
-            yearOfIssueLabel,
-            carNumberLabel
-        ]
-
-        for view in views {
-            cellStackView.addArrangedSubview(view)
-        }
+        cellStackView.addArrangedSubview(manufacturerLabel)
+        cellStackView.addArrangedSubview(modelLabel)
+        cellStackView.addArrangedSubview(bodyLabel)
+        cellStackView.addArrangedSubview(yearOfIssueLabel)
+        cellStackView.addArrangedSubview(carNumberLabel)
     }
 
     private func setupLayout() {
