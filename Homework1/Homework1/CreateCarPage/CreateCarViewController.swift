@@ -11,14 +11,17 @@ protocol CreateCarDelegate: AnyObject {
     func saveCar(car: Car)
 }
 
-class CreateCarViewController: UIViewController {
+class CreateCarViewController: UIViewController, CreateCarViewDelegate {
+    var lastSelectedPickerRow: Int?
+    var bodyTypes = Body.allCases.map { $0.rawValue }
 
-    private lazy var createCarView = CreateCarView()
+    private lazy var createCarView = CreateCarView(delegage: self)
 
     weak var delegate: CreateCarDelegate?
 
     override func loadView() {
         view = createCarView
+
     }
 
     override func viewDidLoad() {
@@ -56,5 +59,25 @@ private extension CreateCarViewController {
         let okAction = UIAlertAction(title: "OK", style: .default)
         validErrorAlert.addAction(okAction)
         present(validErrorAlert, animated: true)
+    }
+}
+
+
+// MARK: Picker View
+extension CreateCarViewController {
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        1
+    }
+
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        bodyTypes.count
+    }
+
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        bodyTypes[row]
+    }
+
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        lastSelectedPickerRow = row
     }
 }

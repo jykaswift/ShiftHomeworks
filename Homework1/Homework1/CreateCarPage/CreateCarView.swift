@@ -7,10 +7,13 @@
 
 import UIKit
 
-class CreateCarView: UIView {
+protocol CreateCarViewDelegate: AnyObject, UIPickerViewDelegate, UIPickerViewDataSource {
+    var lastSelectedPickerRow: Int? { get }
+    var bodyTypes: [String] { get }
+}
 
-    private lazy var bodyTypes = Body.allCases.map { $0.rawValue }
-    private var lastSelectedRow: Int?
+class CreateCarView: UIView {
+    weak var delegate: CreateCarViewDelegate?
 
     private lazy var manufacturerLabel: UILabel = {
         let manufacturerLabel = UILabel()
@@ -46,8 +49,7 @@ class CreateCarView: UIView {
 
     private lazy var bodyPickerView: UIPickerView = {
         let bodyPickerView = UIPickerView()
-        bodyPickerView.delegate = self
-
+        bodyPickerView.delegate = self.delegate
         return bodyPickerView
     }()
 
@@ -65,8 +67,30 @@ class CreateCarView: UIView {
         bodyTextField.placeholder = "Кузов..."
         bodyTextField.inputView = bodyPickerView
         bodyTextField.borderStyle = .roundedRect
-        bodyTextField.inputAccessoryView = self.createBodyAccessoryView()
+        bodyTextField.inputAccessoryView = self.bodyAccessoryView
         return bodyTextField
+    }()
+
+    private lazy var bodyAccessoryView: UIToolbar = {
+        let toolbar = UIToolbar()
+        toolbar.sizeToFit()
+        toolbar.translatesAutoresizingMaskIntoConstraints = false
+
+        let doneAction = UIAction { [weak self] _ in
+            guard let self else { return }
+            if let row = delegate?.lastSelectedPickerRow {
+                bodyTextField.text = delegate?.bodyTypes[row]
+            } else {
+                bodyTextField.text = delegate?.bodyTypes.first
+            }
+            bodyTextField.resignFirstResponder()
+        }
+
+        let doneButton = UIBarButtonItem(systemItem: .done, primaryAction: doneAction)
+
+        toolbar.items = [doneButton]
+
+        return toolbar
     }()
 
     private lazy var yearOfIssueLabel: UILabel = {
@@ -102,15 +126,15 @@ class CreateCarView: UIView {
         return carNumberTextField
     }()
 
-    override init(frame: CGRect) {
+    init(delegage: CreateCarViewDelegate) {
         super.init(frame: .zero)
+        self.delegate = delegage
         self.setupUI()
     }
-
+    
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-
 }
 
 // MARK: Setup UI
@@ -175,47 +199,6 @@ private extension CreateCarView {
             carNumberTextField.topAnchor.constraint(equalTo: carNumberLabel.bottomAnchor, constant: spacing),
             carNumberTextField.trailingAnchor.constraint(equalTo: layoutMarginsGuide.trailingAnchor)
         ])
-    }
-
-    func createBodyAccessoryView() -> UIToolbar {
-        let toolbar = UIToolbar()
-        toolbar.sizeToFit()
-        toolbar.translatesAutoresizingMaskIntoConstraints = false
-
-        let doneAction = UIAction { [weak self] _ in
-            guard let self else { return }
-            if let row = lastSelectedRow {
-                bodyTextField.text = bodyTypes[row]
-            } else {
-                bodyTextField.text = bodyTypes.first
-            }
-            bodyTextField.resignFirstResponder()
-        }
-
-        let doneButton = UIBarButtonItem(systemItem: .done, primaryAction: doneAction)
-
-        toolbar.items = [doneButton]
-
-        return toolbar
-    }
-}
-
-// MARK: PickerView
-extension CreateCarView: UIPickerViewDelegate, UIPickerViewDataSource {
-    func numberOfComponents(in pickerView: UIPickerView) -> Int {
-        1
-    }
-
-    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        bodyTypes.count
-    }
-
-    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        bodyTypes[row]
-    }
-
-    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        lastSelectedRow = row
     }
 
 }
