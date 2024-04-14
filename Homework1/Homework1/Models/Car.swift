@@ -16,6 +16,29 @@ struct Car: Hashable {
     var carNumber: String?
 }
 
+// MARK: Car Property Descriptions
+extension Car {
+    var manufacturerDescription: String {
+        "Марка: \(self.manufacturer)"
+    }
+
+    var modelDescription: String {
+        "Модель: \(self.model)"
+    }
+
+    var bodyDescription: String {
+        "Тип кузова: \(self.body.rawValue)"
+    }
+
+    var yearDescription: String {
+        self.yearOfIssue == nil ? "Год выпуска: -" : "Год выпуска: \(self.yearOfIssue!)"
+    }
+
+    var carNumberDescription: String? {
+        carNumber == nil ? carNumber : "Гос. номер: \(self.carNumber!)"
+    }
+}
+
 enum Body: String, CaseIterable {
     case sedan = "Седан"
     case cabriolet = "Кабриолет"
