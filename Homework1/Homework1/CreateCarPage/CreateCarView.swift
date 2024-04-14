@@ -141,54 +141,36 @@ private extension CreateCarView {
 
         NSLayoutConstraint.activate([
             manufacturerLabel.leadingAnchor.constraint(equalTo: layoutMarginsGuide.leadingAnchor),
-            manufacturerLabel.topAnchor.constraint(equalTo: layoutMarginsGuide.topAnchor)
-        ])
+            manufacturerLabel.topAnchor.constraint(equalTo: layoutMarginsGuide.topAnchor),
 
-        NSLayoutConstraint.activate([
             manufacturerTextField.leadingAnchor.constraint(equalTo: layoutMarginsGuide.leadingAnchor),
             manufacturerTextField.topAnchor.constraint(equalTo: manufacturerLabel.bottomAnchor, constant: spacing),
-            manufacturerTextField.trailingAnchor.constraint(equalTo: layoutMarginsGuide.trailingAnchor)
-        ])
+            manufacturerTextField.trailingAnchor.constraint(equalTo: layoutMarginsGuide.trailingAnchor),
 
-        NSLayoutConstraint.activate([
             modelLabel.leadingAnchor.constraint(equalTo: layoutMarginsGuide.leadingAnchor),
-            modelLabel.topAnchor.constraint(equalTo: manufacturerTextField.bottomAnchor, constant: margin)
-        ])
+            modelLabel.topAnchor.constraint(equalTo: manufacturerTextField.bottomAnchor, constant: margin),
 
-        NSLayoutConstraint.activate([
             modelTextField.leadingAnchor.constraint(equalTo: layoutMarginsGuide.leadingAnchor),
             modelTextField.topAnchor.constraint(equalTo: modelLabel.bottomAnchor, constant: spacing),
-            modelTextField.trailingAnchor.constraint(equalTo: layoutMarginsGuide.trailingAnchor)
-        ])
+            modelTextField.trailingAnchor.constraint(equalTo: layoutMarginsGuide.trailingAnchor),
 
-        NSLayoutConstraint.activate([
             bodyLabel.leadingAnchor.constraint(equalTo: layoutMarginsGuide.leadingAnchor),
-            bodyLabel.topAnchor.constraint(equalTo: modelTextField.bottomAnchor, constant: margin)
-        ])
+            bodyLabel.topAnchor.constraint(equalTo: modelTextField.bottomAnchor, constant: margin),
 
-        NSLayoutConstraint.activate([
             bodyTextField.leadingAnchor.constraint(equalTo: layoutMarginsGuide.leadingAnchor),
             bodyTextField.topAnchor.constraint(equalTo: bodyLabel.bottomAnchor, constant: spacing),
-            bodyTextField.trailingAnchor.constraint(equalTo: layoutMarginsGuide.trailingAnchor)
-        ])
+            bodyTextField.trailingAnchor.constraint(equalTo: layoutMarginsGuide.trailingAnchor),
 
-        NSLayoutConstraint.activate([
             yearOfIssueLabel.leadingAnchor.constraint(equalTo: layoutMarginsGuide.leadingAnchor),
-            yearOfIssueLabel.topAnchor.constraint(equalTo: bodyTextField.bottomAnchor, constant: margin)
-        ])
+            yearOfIssueLabel.topAnchor.constraint(equalTo: bodyTextField.bottomAnchor, constant: margin),
 
-        NSLayoutConstraint.activate([
             yearOfIssueTextField.leadingAnchor.constraint(equalTo: layoutMarginsGuide.leadingAnchor),
             yearOfIssueTextField.topAnchor.constraint(equalTo: yearOfIssueLabel.bottomAnchor, constant: spacing),
-            yearOfIssueTextField.trailingAnchor.constraint(equalTo: layoutMarginsGuide.trailingAnchor)
-        ])
+            yearOfIssueTextField.trailingAnchor.constraint(equalTo: layoutMarginsGuide.trailingAnchor),
 
-        NSLayoutConstraint.activate([
             carNumberLabel.leadingAnchor.constraint(equalTo: layoutMarginsGuide.leadingAnchor),
-            carNumberLabel.topAnchor.constraint(equalTo: yearOfIssueTextField.bottomAnchor, constant: margin)
-        ])
+            carNumberLabel.topAnchor.constraint(equalTo: yearOfIssueTextField.bottomAnchor, constant: margin),
 
-        NSLayoutConstraint.activate([
             carNumberTextField.leadingAnchor.constraint(equalTo: layoutMarginsGuide.leadingAnchor),
             carNumberTextField.topAnchor.constraint(equalTo: carNumberLabel.bottomAnchor, constant: spacing),
             carNumberTextField.trailingAnchor.constraint(equalTo: layoutMarginsGuide.trailingAnchor)
