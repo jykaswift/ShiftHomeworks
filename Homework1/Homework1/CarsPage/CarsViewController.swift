@@ -10,7 +10,7 @@ import UIKit
 class CarsViewController: UIViewController {
 
     private lazy var carsView = CarsView()
-    private lazy var datasource = CarDatasource()
+    private lazy var carDatasource = CarDatasource()
 
     override func loadView() {
         view = carsView
@@ -23,7 +23,7 @@ class CarsViewController: UIViewController {
     }
 
     private func setupView() {
-        carsView.updateTableDatasource(with: datasource.getDatasource(), animated: true)
+        carsView.updateTableDatasource(with: carDatasource.datasource, animated: true)
     }
 
 }
@@ -72,8 +72,8 @@ private extension CarsViewController {
     ) -> UIAction {
         let action = UIAction(title: title, state: state) { [weak self] _ in
             guard let self else { return }
-            datasource.setSortedState(with: sortType)
-            carsView.updateTableDatasource(with: datasource.getSortedDatasource(), animated: true)
+            carDatasource.setSortedState(with: sortType)
+            carsView.updateTableDatasource(with: carDatasource.getSortedDatasource(), animated: true)
             self.navigationItem.leftBarButtonItem?.title = title
         }
 
@@ -83,7 +83,7 @@ private extension CarsViewController {
 
 extension CarsViewController: CreateCarDelegate {
     func saveCar(car: Car) {
-        datasource.addCar(car: car)
-        carsView.updateTableDatasource(with: datasource.getSortedDatasource(), animated: false)
+        carDatasource.addCar(car: car)
+        carsView.updateTableDatasource(with: carDatasource.getSortedDatasource(), animated: false)
     }
 }
