@@ -34,23 +34,23 @@ class CreateCarViewController: UIViewController, CreateCarViewDelegate {
 // MARK: View's textfields
 private extension CreateCarViewController {
     var manufactorerText: String? {
-        return createCarView.manufacturerTextField.text
+        createCarView.manufacturerTextField.text
     }
 
     var modelText: String? {
-        return createCarView.modelTextField.text
+        createCarView.modelTextField.text
     }
 
     var bodyText: String? {
-        return createCarView.bodyTextField.text
+        createCarView.bodyTextField.text
     }
 
     var yearOfIssueText: String? {
-        return createCarView.yearOfIssueTextField.text
+        createCarView.yearOfIssueTextField.text
     }
 
     var carNumberText: String? {
-        return createCarView.carNumberTextField.text
+        createCarView.carNumberTextField.text
     }
 
 
