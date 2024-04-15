@@ -77,10 +77,11 @@ extension CarsView {
     }
 
     func updateTableDatasource(with cars: [Car], animated: Bool) {
-        var snapshop = NSDiffableDataSourceSnapshot<TableSection, Car>()
-        snapshop.appendSections([.main])
-        snapshop.appendItems(cars, toSection: .main)
-        tableViewDataSource?.apply(snapshop, animatingDifferences: animated)
+        guard let tableViewDataSource else { return }
+        var snapshot = NSDiffableDataSourceSnapshot<TableSection, Car>()
+        snapshot.appendSections([.main])
+        snapshot.appendItems(cars, toSection: .main)
+        tableViewDataSource.apply(snapshot, animatingDifferences: animated)
     }
 }
 

@@ -8,7 +8,7 @@
 import UIKit
 
 protocol CreateCarDelegate: AnyObject {
-    func saveCar(car: Car)
+    func saveCar(_ car: Car)
 }
 
 class CreateCarViewController: UIViewController, CreateCarViewDelegate {
@@ -77,7 +77,7 @@ private extension CreateCarViewController {
                 return
             }
             
-            delegate?.saveCar(car: car)
+            delegate?.saveCar(car)
             navigationController?.popViewController(animated: true)
         }
 

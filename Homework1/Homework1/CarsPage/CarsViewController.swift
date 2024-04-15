@@ -82,8 +82,8 @@ private extension CarsViewController {
 }
 
 extension CarsViewController: CreateCarDelegate {
-    func saveCar(car: Car) {
-        carDatasource.addCar(car: car)
+    func saveCar(_ car: Car) {
+        carDatasource.addCar(car)
         carsView.updateTableDatasource(with: carDatasource.getSortedDatasource(), animated: false)
     }
 }

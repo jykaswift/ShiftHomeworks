@@ -24,7 +24,7 @@ class CarDatasource {
         }
     }
 
-    func addCar(car: Car) {
+    func addCar(_ car: Car) {
         datasource.append(car)
     }
 
