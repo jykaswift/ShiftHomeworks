@@ -31,17 +31,52 @@ class CreateCarViewController: UIViewController, CreateCarViewDelegate {
     }
 }
 
+// MARK: View's textfields
+private extension CreateCarViewController {
+    var manufactorerText: String? {
+        return createCarView.manufacturerTextField.text
+    }
+
+    var modelText: String? {
+        return createCarView.modelTextField.text
+    }
+
+    var bodyText: String? {
+        return createCarView.bodyTextField.text
+    }
+
+    var yearOfIssueText: String? {
+        return createCarView.yearOfIssueTextField.text
+    }
+
+    var carNumberText: String? {
+        return createCarView.carNumberTextField.text
+    }
+
+
+    
+}
+
 // MARK: NavBar
 private extension CreateCarViewController {
     func setupNavigationBar() {
         let saveAction = UIAction { [weak self] _ in
             guard let self else { return }
+
             let carValidator = CarValidator()
-            let carDTO = createCarView.getData()
-            guard let car = carValidator.validateCarData(with: carDTO) else {
+            let car = carValidator.validateCarData(
+                manufacturer: manufactorerText,
+                model: modelText,
+                body: bodyText,
+                yearOfIssue: yearOfIssueText,
+                carNumber: carNumberText
+            )
+
+            guard let car else {
                 self.showValidErrorAlert()
                 return
             }
+            
             delegate?.saveCar(car: car)
             navigationController?.popViewController(animated: true)
         }

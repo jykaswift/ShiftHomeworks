@@ -23,7 +23,7 @@ class CreateCarView: UIView {
         return manufacturerLabel
     }()
 
-    private lazy var manufacturerTextField: UITextField = {
+    lazy var manufacturerTextField: UITextField = {
         let manufacturerTextField = UITextField()
         manufacturerTextField.translatesAutoresizingMaskIntoConstraints = false
         manufacturerTextField.placeholder = "Марка..."
@@ -39,7 +39,7 @@ class CreateCarView: UIView {
         return modelLabel
     }()
 
-    private lazy var modelTextField: UITextField = {
+    lazy var modelTextField: UITextField = {
         let modelTextField = UITextField()
         modelTextField.translatesAutoresizingMaskIntoConstraints = false
         modelTextField.placeholder = "Модель..."
@@ -61,7 +61,7 @@ class CreateCarView: UIView {
         return modelLabel
     }()
 
-    private lazy var bodyTextField: UITextField = {
+    lazy var bodyTextField: UITextField = {
         let bodyTextField = UITextField()
         bodyTextField.translatesAutoresizingMaskIntoConstraints = false
         bodyTextField.placeholder = "Кузов..."
@@ -101,7 +101,7 @@ class CreateCarView: UIView {
         return yearOfIssueLabel
     }()
 
-    private lazy var yearOfIssueTextField: UITextField = {
+    lazy var yearOfIssueTextField: UITextField = {
         let yearOfIssueTextField = UITextField()
         yearOfIssueTextField.translatesAutoresizingMaskIntoConstraints = false
         yearOfIssueTextField.placeholder = "Год выпуска..."
@@ -118,7 +118,7 @@ class CreateCarView: UIView {
         return carNumberLabel
     }()
 
-    private lazy var carNumberTextField: UITextField = {
+    lazy var carNumberTextField: UITextField = {
         let carNumberTextField = UITextField()
         carNumberTextField.translatesAutoresizingMaskIntoConstraints = false
         carNumberTextField.placeholder = "Государственный номер..."
@@ -201,17 +201,4 @@ private extension CreateCarView {
         ])
     }
 
-}
-
-// MARK: Validate Input
-extension CreateCarView {
-    func getData() -> CarDTO {
-        return CarDTO(
-            manufacturer: manufacturerTextField.text,
-            model: modelTextField.text,
-            body: bodyTextField.text,
-            yearOfIssue: yearOfIssueTextField.text,
-            carNumber: carNumberTextField.text
-        )
-    }
 }

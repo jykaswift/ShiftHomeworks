@@ -8,21 +8,28 @@
 import Foundation
 
 class CarValidator {
-    func validateCarData(with carDTO: CarDTO) -> Car? {
-        let manufacturer = self.validateManufacturer(carDTO.manufacturer)
-        let model = self.validateModel(carDTO.model)
-        let body = self.validateBody(carDTO.body)
-        let yearOfIssue = self.validateYearOfIssue(carDTO.yearOfIssue)
-        let carNumber = self.validateCarNumber(carDTO.carNumber)
-        guard let model, let body, let manufacturer
+    func validateCarData(
+        manufacturer: String?,
+        model: String?,
+        body: String?,
+        yearOfIssue: String?,
+        carNumber: String?
+    ) -> Car? {
+        let validatedManufacturer = self.validateManufacturer(manufacturer)
+        let validatedModel = self.validateModel(model)
+        let validatedBody = self.validateBody(body)
+        let validatedYearOfIssue = self.validateYearOfIssue(yearOfIssue)
+        let validatedCarNumber = self.validateCarNumber(carNumber)
+
+        guard let validatedModel, let validatedBody, let validatedManufacturer
         else { return nil }
 
         return Car(
-            manufacturer: manufacturer,
-            model: model,
-            body: body,
-            yearOfIssue: yearOfIssue,
-            carNumber: carNumber
+            manufacturer: validatedManufacturer,
+            model: validatedModel,
+            body: validatedBody,
+            yearOfIssue: validatedYearOfIssue,
+            carNumber: validatedCarNumber
         )
     }
 
