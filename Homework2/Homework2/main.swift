@@ -8,7 +8,7 @@
 import Foundation
 
 func main() {
-    let queue = DispatchQueue(label: "11", attributes: .concurrent)
+    let queue = DispatchQueue(label: "ThreadSafetyCheck", attributes: .concurrent)
     let safetyArray = ThreadSafetyArray<Int>()
 
     let dispatchGroup = DispatchGroup()
