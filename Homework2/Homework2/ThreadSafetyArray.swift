@@ -7,9 +7,36 @@
 
 import Foundation
 
-public class ThreadSafetyArray<T> {
-    private var array = [T]()
-    private var lock = NSLock()
+
+fileprivate protocol ThreadSafetyArrayProtocol {
+    associatedtype Element
+
+    var array: [Element] { get set }
+    var lock: NSLock { get set }
+
+    subscript(_ index: Int) -> Element { get }
+    var count: Int { get }
+    var isEmpty: Bool { get }
+
+    func append(_ item: Element)
+    func remove(at index: Int)
+}
+
+extension ThreadSafetyArrayProtocol where Element: Equatable {
+    func contains(_ element: Element) -> Bool {
+        lock.lock()
+        defer {
+            lock.unlock()
+        }
+        return array.contains(element)
+    }
+}
+
+
+public class ThreadSafetyArray<T>: ThreadSafetyArrayProtocol {
+    
+    fileprivate var array = [T]()
+    fileprivate var lock = NSLock()
 
     subscript(_ index: Int) -> T {
         lock.lock()
@@ -35,7 +62,6 @@ public class ThreadSafetyArray<T> {
         return array.isEmpty
     }
 
-
     func append(_ item: T) {
         lock.lock()
         array.append(item)
@@ -44,17 +70,14 @@ public class ThreadSafetyArray<T> {
 
     func remove(at index: Int) {
         lock.lock()
-        array.remove(at: index)
+
+        if array.indices.contains(index) {
+            array.remove(at: index)
+        } else {
+            print("Warning: there is no such index in the array [\(index)]")
+        }
+
         lock.unlock()
     }
 }
 
-public extension ThreadSafetyArray where T: Equatable {
-    func contains(_ element: T) -> Bool {
-        lock.lock()
-        defer {
-            lock.unlock()
-        }
-        return array.contains(element)
-    }
-}
