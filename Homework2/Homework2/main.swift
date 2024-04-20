@@ -9,7 +9,7 @@ import Foundation
 
 func fillSafetyArray(with queue: DispatchQueue) -> ThreadSafetyArray<Int> {
     let dispatchGroup = DispatchGroup()
-    var safetyArray = ThreadSafetyArray<Int>()
+    let safetyArray = ThreadSafetyArray<Int>()
     let workItem = DispatchWorkItem {
         for i in 1...1000 {
             safetyArray.append(i)
@@ -48,6 +48,7 @@ func checkContainsIn(safetyArray: ThreadSafetyArray<Int>, with queue: DispatchQu
     let checkContains = DispatchWorkItem {
         for i in 1...100 {
             let element = Int.random(in: 1...1999)
+            let result = safetyArray.contains(element)
         }
     }
 
@@ -60,7 +61,7 @@ func checkContainsIn(safetyArray: ThreadSafetyArray<Int>, with queue: DispatchQu
 func main() {
     let queue = DispatchQueue(label: "ThreadSafetyCheck", attributes: .concurrent)
 
-    var safetyArray = fillSafetyArray(with: queue)
+    let safetyArray = fillSafetyArray(with: queue)
     checkElementsAndCount(safetyArray: safetyArray)
     checkRemovingIn(safetyArray: safetyArray, with: queue)
     checkElementsAndCount(safetyArray: safetyArray)

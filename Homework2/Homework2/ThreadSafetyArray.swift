@@ -20,18 +20,8 @@ fileprivate protocol ThreadSafetyArrayProtocol {
 
     func append(_ item: Element)
     func remove(at index: Int)
+    func contains<T>(_ element: T) -> Bool where T.Type == Element.Type, T: Equatable
 }
-
-extension ThreadSafetyArrayProtocol where Element: Equatable {
-    func contains(_ element: Element) -> Bool {
-        lock.lock()
-        defer {
-            lock.unlock()
-        }
-        return array.contains(element)
-    }
-}
-
 
 public class ThreadSafetyArray<T>: ThreadSafetyArrayProtocol {
     
@@ -81,3 +71,12 @@ public class ThreadSafetyArray<T>: ThreadSafetyArrayProtocol {
     }
 }
 
+extension ThreadSafetyArray where T: Equatable {
+    func contains(_ element: T) -> Bool {
+        lock.lock()
+        defer {
+            lock.unlock()
+        }
+        return array.contains(element)
+    }
+}
