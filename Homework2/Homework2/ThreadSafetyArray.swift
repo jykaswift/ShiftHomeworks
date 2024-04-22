@@ -14,7 +14,7 @@ fileprivate protocol ThreadSafetyArrayProtocol {
     var array: [Element] { get set }
     var lock: NSLock { get set }
 
-    subscript(_ index: Int) -> Element { get }
+    subscript(_ index: Int) -> Element? { get }
     var count: Int { get }
     var isEmpty: Bool { get }
 
@@ -28,12 +28,18 @@ public class ThreadSafetyArray<T>: ThreadSafetyArrayProtocol {
     fileprivate var array = [T]()
     fileprivate var lock = NSLock()
 
-    subscript(_ index: Int) -> T {
+    subscript(_ index: Int) -> T? {
         lock.lock()
         defer {
             lock.unlock()
         }
-        return array[index]
+
+        if array.indices.contains(index) {
+            return array[index]
+        } else {
+            print(Error.outOfBounds.rawValue)
+            return nil
+        }
     }
 
     var count: Int {
@@ -64,7 +70,7 @@ public class ThreadSafetyArray<T>: ThreadSafetyArrayProtocol {
         if array.indices.contains(index) {
             array.remove(at: index)
         } else {
-            print("Warning: there is no such index in the array [\(index)]")
+            print(Error.outOfBounds.rawValue)
         }
 
         lock.unlock()

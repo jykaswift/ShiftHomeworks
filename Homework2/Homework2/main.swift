@@ -25,7 +25,8 @@ func fillSafetyArray(with queue: DispatchQueue) -> ThreadSafetyArray<Int> {
 
 func checkElementsAndCount(safetyArray: ThreadSafetyArray<Int>) {
     for i in 0..<safetyArray.count {
-        print(safetyArray[i])
+        guard let element = safetyArray[i] else { continue }
+        print(element)
     }
     print("Count: \(safetyArray.count)")
 }
@@ -46,7 +47,7 @@ func checkRemovingIn(safetyArray: ThreadSafetyArray<Int>, with queue: DispatchQu
 func checkContainsIn(safetyArray: ThreadSafetyArray<Int>, with queue: DispatchQueue) {
     let dispatchGroup = DispatchGroup()
     let checkContains = DispatchWorkItem {
-        for i in 1...100 {
+        for _ in 1...100 {
             let element = Int.random(in: 1...1999)
             let result = safetyArray.contains(element)
         }
