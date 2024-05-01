@@ -25,6 +25,8 @@ class HobbiesController: UIViewController {
 
 extension HobbiesController: HobbiesViewDelegate {
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+        let scrollViewWidth = scrollView.frame.size.width
+        guard scrollViewWidth != 0 else { return }
         let pageNumber = round(scrollView.contentOffset.x / scrollView.frame.size.width)
         hobbiesView.pageControl.currentPage = Int(pageNumber)
     }
