@@ -21,12 +21,11 @@ class DataSource {
         isMarried: false
     )
 
-    private let userLanguages = [
-        ProgrammingLanguage(name: "Kotlin", description: LanguageDesriptions.kotlin.rawValue),
-        ProgrammingLanguage(name: "Python", description: LanguageDesriptions.python.rawValue),
-        ProgrammingLanguage(name: "Javascript", description: LanguageDesriptions.javasript.rawValue),
-        ProgrammingLanguage(name: "Swift", description: LanguageDesriptions.swift.rawValue),
-    ]
+    private lazy var userLanguages: [ProgrammingLanguage] = {
+        return LanguageDesriptions.allCases.map { language in
+            ProgrammingLanguage(name: language.rawValue, description: language.getDesription)
+        }
+    }()
 
     private let hobbies = [
         Hobby(
