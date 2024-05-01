@@ -23,7 +23,7 @@ class DataSource {
 
     private lazy var userLanguages: [ProgrammingLanguage] = {
         return LanguageDesriptions.allCases.map { language in
-            ProgrammingLanguage(name: language.rawValue, description: language.desription)
+            ProgrammingLanguage(name: language.rawValue, description: language.description)
         }
     }()
 

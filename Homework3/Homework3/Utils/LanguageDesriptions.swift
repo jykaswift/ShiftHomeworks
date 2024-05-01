@@ -17,7 +17,7 @@ enum LanguageDesriptions: String, CaseIterable {
 
     case swift = "Swift"
 
-    var desription: String {
+    var description: String {
         switch self {
         case .kotlin: 
             """
