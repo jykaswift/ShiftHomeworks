@@ -14,6 +14,7 @@ class GameEnviromentsCollectionCell: UICollectionViewCell {
     private lazy var enviromentButton: UIButton = {
         let enviromentButton = UIButton(configuration: .gray())
         enviromentButton.translatesAutoresizingMaskIntoConstraints = false
+        enviromentButton.isUserInteractionEnabled = false
         return enviromentButton
     }()
 
@@ -27,7 +28,7 @@ class GameEnviromentsCollectionCell: UICollectionViewCell {
         fatalError("init(coder:) has not been implemented")
     }
 
-    func setupEnvorentalButton(with gameEnviroment: GameEnviroment) {
+    func setupGameEnviroment(with gameEnviroment: GameEnviroment) {
         enviromentButton.configuration?.title = gameEnviroment.name.rawValue
     }
 

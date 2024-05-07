@@ -9,6 +9,7 @@ import Foundation
 import UIKit
 
 class GameInfoView: UIView {
+
     lazy var gameInfoCollectionView: UICollectionView = {
         let collectionLayout = createCompositionalLayout()
         let gameInfoCollectionView = UICollectionView(frame: .zero, collectionViewLayout: collectionLayout)
@@ -61,7 +62,7 @@ private extension GameInfoView {
 }
 
 
-// MARK: Collection View Layout
+// MARK: CollectionView Layout
 private extension GameInfoView {
     
     enum GroupDirection {
@@ -115,7 +116,12 @@ private extension GameInfoView {
         let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .fractionalHeight(1))
         let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(0.97), heightDimension: .absolute(250))
 
-        let section = createLayoutSection(itemSize: itemSize, groupSize: groupSize, groupDirection: .horizontal, sectionInsets: .init(top: 10, leading: 0, bottom: 10, trailing: 0))
+        let section = createLayoutSection(
+            itemSize: itemSize,
+            groupSize: groupSize,
+            groupDirection: .horizontal,
+            sectionInsets: .init(top: 10, leading: 0, bottom: 10, trailing: 0)
+        )
         section.orthogonalScrollingBehavior = .groupPaging
         section.interGroupSpacing = 5
 
@@ -125,7 +131,12 @@ private extension GameInfoView {
     func createDescriptionSection() -> NSCollectionLayoutSection {
         let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .estimated(50))
         let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .estimated(50))
-        let section = createLayoutSection(itemSize: itemSize, groupSize: groupSize, groupDirection: .horizontal, sectionInsets: .init(top: 10, leading: 10, bottom: 10, trailing: 10))
+        let section = createLayoutSection(
+            itemSize: itemSize,
+            groupSize: groupSize,
+            groupDirection: .horizontal,
+            sectionInsets: .init(top: 10, leading: 10, bottom: 10, trailing: 10)
+        )
         return section
     }
 
@@ -133,7 +144,13 @@ private extension GameInfoView {
         let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .absolute(50))
         let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .estimated(100))
 
-        let section = createLayoutSection(itemSize: itemSize, groupSize: groupSize, groupDirection: .vertical, sectionInsets: .init(top: 10, leading: 0, bottom: 10, trailing: 0))
+        let section = createLayoutSection(
+            itemSize: itemSize,
+            groupSize: groupSize,
+            groupDirection: .vertical,
+            sectionInsets: .init(top: 10, leading: 0, bottom: 10, trailing: 0)
+        )
+
         return section
     }
 

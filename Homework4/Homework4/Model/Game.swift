@@ -15,4 +15,13 @@ struct Game {
     let description: String
     var screenshots: [UIImage?] = []
     var gameEnviroments: [GameEnviroment] = []
+
+    func getScreenshots() -> [UIImage] {
+        let screenshots = self.screenshots.compactMap { $0 }
+        if screenshots.isEmpty, let noImage = UIImage(named: "no_image") {
+            return [noImage]
+        }
+
+        return screenshots
+    }
 }

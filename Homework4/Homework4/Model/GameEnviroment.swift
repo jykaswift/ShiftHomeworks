@@ -7,11 +7,10 @@
 
 import Foundation
 
-enum GameAvailibility {
-    case perfect
-    case playable
-    case unplayble
-    case none
+enum GameAvailibility: String {
+    case perfect = "Perfrect"
+    case playable = "Playable"
+    case unplayble = "Unplayable"
 }
 
 enum GameEnviromentName: String {

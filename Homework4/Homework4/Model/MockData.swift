@@ -16,18 +16,13 @@ class MockData {
             description: """
             Battlefield 1 (also known as BF1 and development code-named 'Tunguska') is the fifteenth installment in the Battlefield Series developed by DICE and published by EA.
             The game is set during World War I. It marks the first installment exclusive to eighth-generation consoles and was released worldwide on October 21, 2016.
-            """
+            """,
+            gameEnviroments: getMockEnviroment()
         )
         battleField.screenshots = [
             UIImage(named: "bf1_1"),
             UIImage(named: "bf1_2"),
             UIImage(named: "bf1_3"),
-        ]
-
-        battleField.gameEnviroments = [
-            GameEnviroment(name: .crossover, availibility: .playable),
-            GameEnviroment(name: .rosseta2, availibility: .perfect),
-            GameEnviroment(name: .wine, availibility: .unplayble),
         ]
 
         var bordelands = Game(
@@ -36,7 +31,8 @@ class MockData {
             description: """
             Borderlands is an action role-playing first-person looter shooter video game franchise set in a space Western science fantasy setting.
             Created and produced by Gearbox Software and published by 2K for multiple platforms.
-            """
+            """,
+            gameEnviroments: getMockEnviroment()
         )
 
         bordelands.screenshots = [
@@ -44,9 +40,22 @@ class MockData {
             UIImage(named: "br1_2"),
         ]
 
+
         return [
             battleField,
             bordelands
         ]
+    }
+
+    static func getMockEnviroment() -> [GameEnviroment] {
+        return [
+            GameEnviroment(name: .crossover, availibility: .playable),
+            GameEnviroment(name: .rosseta2, availibility: .perfect),
+            GameEnviroment(name: .wine, availibility: .unplayble),
+        ]
+    }
+
+    static func generateRandomString() {
+        
     }
 }

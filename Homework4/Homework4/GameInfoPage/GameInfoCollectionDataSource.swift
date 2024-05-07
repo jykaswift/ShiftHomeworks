@@ -26,7 +26,7 @@ class GameInfoCollectionDataSource: NSObject, UICollectionViewDataSource {
         let numberOfItems: Int
         switch gameInfoSection {
         case .screenshots:
-            numberOfItems = game.screenshots.count
+            numberOfItems = game.getScreenshots().count
         case .description:
             numberOfItems = 1
         case .gameEnviroment:
@@ -45,7 +45,7 @@ class GameInfoCollectionDataSource: NSObject, UICollectionViewDataSource {
         case .screenshots:
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ScreenshotCollectionCell.identifier, for: indexPath) as? ScreenshotCollectionCell
             else { return UICollectionViewCell() }
-            cell.screenshotImage = game.screenshots[indexPath.row]
+            cell.screenshotImage = game.getScreenshots()[indexPath.row]
             return cell
         case .description:
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: DescriptionCollectionCell.identifier, for: indexPath) as? DescriptionCollectionCell
@@ -55,7 +55,7 @@ class GameInfoCollectionDataSource: NSObject, UICollectionViewDataSource {
         case .gameEnviroment:
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: GameEnviromentsCollectionCell.identifier, for: indexPath) as? GameEnviromentsCollectionCell
             else { return UICollectionViewCell() }
-            cell.setupEnvorentalButton(with: game.gameEnviroments[indexPath.row])
+            cell.setupGameEnviroment(with: game.gameEnviroments[indexPath.row])
             return cell
         }
     }
