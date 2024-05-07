@@ -14,6 +14,9 @@ class GameEnviromentsCollectionCell: UICollectionViewCell {
     private lazy var enviromentButton: UIButton = {
         let enviromentButton = UIButton()
         enviromentButton.translatesAutoresizingMaskIntoConstraints = false
+        enviromentButton.setTitleColor(.black, for: .normal)
+        enviromentButton.layer.borderColor = UIColor.black.cgColor
+        enviromentButton.layer.borderWidth = 1
         return enviromentButton
     }()
 

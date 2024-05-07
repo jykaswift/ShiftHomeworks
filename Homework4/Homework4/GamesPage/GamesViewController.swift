@@ -10,6 +10,7 @@ import UIKit
 class GamesViewController: UIViewController {
 
     private lazy var gamesView = GamesView()
+    private lazy var dataSource = DataSource.shared
     private lazy var collectionViewDataSource = GamesCollectionDataSource()
     override func loadView() {
         view = gamesView
@@ -18,7 +19,7 @@ class GamesViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupNavigation()
-        setupCollectionView()
+        setupCollectionViewDelegates()
     }
 }
 
@@ -32,12 +33,14 @@ private extension GamesViewController {
 
 // MARK: Setup CollectionView Delegates
 extension GamesViewController: UICollectionViewDelegate {
-    func setupCollectionView() {
+    func setupCollectionViewDelegates() {
         gamesView.gamesCollectionView.dataSource = collectionViewDataSource
         gamesView.gamesCollectionView.delegate = self
     }
 
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        navigationController?.pushViewController(GameInfoViewController(), animated: true)
+
+        let gameInfoVC = GameInfoViewController(game: dataSource[indexPath.item])
+        navigationController?.pushViewController(gameInfoVC, animated: true)
     }
 }
