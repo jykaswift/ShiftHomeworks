@@ -11,10 +11,11 @@ class ScreenshotCollectionCell: UICollectionViewCell {
 
     static let identifier = String(describing: ScreenshotCollectionCell.self)
 
-    private lazy var screenshotImageView = {
+    private lazy var screenshotImageView: UIImageView = {
         let screenshotImageView = UIImageView()
         screenshotImageView.translatesAutoresizingMaskIntoConstraints = false
         screenshotImageView.contentMode = .scaleAspectFill
+        screenshotImageView.clipsToBounds = true
 
         return screenshotImageView
     }()
@@ -58,6 +59,7 @@ private extension ScreenshotCollectionCell {
             screenshotImageView.topAnchor.constraint(equalTo: contentView.topAnchor),
             screenshotImageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
             screenshotImageView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
+            screenshotImageView.heightAnchor.constraint(equalToConstant: 250),
             screenshotImageView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
         ])
     }

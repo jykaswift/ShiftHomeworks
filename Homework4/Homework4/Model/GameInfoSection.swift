@@ -19,7 +19,7 @@ enum GameInfoSection: CaseIterable {
         case .description:
             "Описание"
         case .gameEnviroment:
-            "Среда запуска"
+            "Среды запуска"
         }
     }
 }

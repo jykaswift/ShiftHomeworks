@@ -28,7 +28,6 @@ class GamesView: UIView {
 
 }
 
-
 // MARK: CollectionView Layout
 private extension GamesView {
     func createLayout() -> UICollectionViewLayout {

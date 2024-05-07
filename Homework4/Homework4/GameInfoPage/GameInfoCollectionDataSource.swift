@@ -18,8 +18,7 @@ class GameInfoCollectionDataSource: NSObject, UICollectionViewDataSource {
     }
 
     func numberOfSections(in collectionView: UICollectionView) -> Int {
-//        sections.count
-        1
+        sections.count
     }
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {

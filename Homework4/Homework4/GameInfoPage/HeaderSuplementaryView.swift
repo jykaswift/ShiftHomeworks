@@ -13,8 +13,8 @@ class HeaderSuplementaryView: UICollectionReusableView {
     private lazy var headerLabel: UILabel = {
         let headerLabel = UILabel()
         headerLabel.textAlignment = .center
-        headerLabel.font = UIFont.systemFont(ofSize: 18)
-        headerLabel.textColor = .systemGray
+        headerLabel.font = UIFont.systemFont(ofSize: 18, weight: .bold)
+        headerLabel.textColor = .black
         headerLabel.translatesAutoresizingMaskIntoConstraints = false
 
         return headerLabel
@@ -42,7 +42,7 @@ class HeaderSuplementaryView: UICollectionReusableView {
 // MARK: Setup UI
 private extension HeaderSuplementaryView {
     func setupUI() {
-        backgroundColor = .white
+        backgroundColor = .systemGray5
         addSubviews()
         setupLayout()
     }

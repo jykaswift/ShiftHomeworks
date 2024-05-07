@@ -12,11 +12,8 @@ class GameEnviromentsCollectionCell: UICollectionViewCell {
     static let identifier = String(describing: GameEnviromentsCollectionCell.self)
 
     private lazy var enviromentButton: UIButton = {
-        let enviromentButton = UIButton()
+        let enviromentButton = UIButton(configuration: .gray())
         enviromentButton.translatesAutoresizingMaskIntoConstraints = false
-        enviromentButton.setTitleColor(.black, for: .normal)
-        enviromentButton.layer.borderColor = UIColor.black.cgColor
-        enviromentButton.layer.borderWidth = 1
         return enviromentButton
     }()
 
@@ -31,7 +28,7 @@ class GameEnviromentsCollectionCell: UICollectionViewCell {
     }
 
     func setupEnvorentalButton(with gameEnviroment: GameEnviroment) {
-        enviromentButton.setTitle(gameEnviroment.name.rawValue, for: .normal)
+        enviromentButton.configuration?.title = gameEnviroment.name.rawValue
     }
 
 }
@@ -51,10 +48,8 @@ private extension GameEnviromentsCollectionCell {
 
     func setupLayout() {
         NSLayoutConstraint.activate([
-            enviromentButton.topAnchor.constraint(equalTo: contentView.topAnchor),
-            enviromentButton.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
-            enviromentButton.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
-            enviromentButton.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
+            enviromentButton.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
+            enviromentButton.centerYAnchor.constraint(equalTo: contentView.centerYAnchor)
         ])
     }
 }
