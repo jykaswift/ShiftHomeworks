@@ -18,7 +18,6 @@ class GameEnviromentsCollectionCell: UICollectionViewCell {
         return enviromentButton
     }()
 
-
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupUI()

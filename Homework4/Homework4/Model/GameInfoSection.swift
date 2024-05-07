@@ -15,11 +15,11 @@ enum GameInfoSection: CaseIterable {
     var title: String {
         switch self {
         case .screenshots:
-            "Скриншоты"
+            "Screenshots"
         case .description:
-            "Описание"
+            "Description"
         case .gameEnviroment:
-            "Среды запуска"
+            "Game Enviroments"
         }
     }
 }

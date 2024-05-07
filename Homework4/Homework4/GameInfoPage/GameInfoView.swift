@@ -90,7 +90,8 @@ private extension GameInfoView {
         itemSize: NSCollectionLayoutSize,
         groupSize: NSCollectionLayoutSize,
         groupDirection: GroupDirection,
-        sectionInsets: NSDirectionalEdgeInsets
+        sectionInsets: NSDirectionalEdgeInsets,
+        groupInsets: NSDirectionalEdgeInsets = .zero
     ) -> NSCollectionLayoutSection {
         let item = NSCollectionLayoutItem(layoutSize: itemSize)
         let group: NSCollectionLayoutGroup
@@ -101,6 +102,9 @@ private extension GameInfoView {
         case .vertical:
             group = NSCollectionLayoutGroup.vertical(layoutSize: groupSize, subitems: [item])
         }
+        
+        group.contentInsets = groupInsets
+
         let headerSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .absolute(30))
         let section = NSCollectionLayoutSection(group: group)
         section.boundarySupplementaryItems = [
@@ -135,7 +139,8 @@ private extension GameInfoView {
             itemSize: itemSize,
             groupSize: groupSize,
             groupDirection: .horizontal,
-            sectionInsets: .init(top: 10, leading: 10, bottom: 10, trailing: 10)
+            sectionInsets: .init(top: 10, leading: 0, bottom: 10, trailing: 0),
+            groupInsets: .init(top: 0, leading: 10, bottom: 0, trailing: 10)
         )
         return section
     }
