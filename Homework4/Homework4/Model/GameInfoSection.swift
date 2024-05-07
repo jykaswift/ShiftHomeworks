@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum GameInfoSection {
+enum GameInfoSection: CaseIterable {
     case screenshots
     case description
     case gameEnviroment
