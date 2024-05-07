@@ -18,7 +18,8 @@ class GameInfoCollectionDataSource: NSObject, UICollectionViewDataSource {
     }
 
     func numberOfSections(in collectionView: UICollectionView) -> Int {
-        sections.count
+//        sections.count
+        1
     }
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -60,5 +61,20 @@ class GameInfoCollectionDataSource: NSObject, UICollectionViewDataSource {
         }
     }
     
+    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+
+        switch kind {
+        case UICollectionView.elementKindSectionHeader:
+            guard let header = collectionView.dequeueReusableSupplementaryView(
+                ofKind: kind, 
+                withReuseIdentifier: HeaderSuplementaryView.identifier,
+                for: indexPath
+            ) as? HeaderSuplementaryView else { return UICollectionReusableView() }
+            header.headerText = sections[indexPath.section].title
+            return header
+        default:
+            return UICollectionViewCell()
+        }
+    }
 
 }

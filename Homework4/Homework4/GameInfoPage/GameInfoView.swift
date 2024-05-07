@@ -16,6 +16,11 @@ class GameInfoView: UIView {
         gameInfoCollectionView.register(ScreenshotCollectionCell.self, forCellWithReuseIdentifier: ScreenshotCollectionCell.identifier)
         gameInfoCollectionView.register(DescriptionCollectionCell.self, forCellWithReuseIdentifier: DescriptionCollectionCell.identifier)
         gameInfoCollectionView.register(GameEnviromentsCollectionCell.self, forCellWithReuseIdentifier: GameEnviromentsCollectionCell.identifier)
+        gameInfoCollectionView.register(
+            HeaderSuplementaryView.self, 
+            forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader,
+            withReuseIdentifier: HeaderSuplementaryView.identifier
+        )
         gameInfoCollectionView.backgroundColor = .none
         return gameInfoCollectionView
     }()
@@ -87,6 +92,11 @@ private extension GameInfoView {
         section.orthogonalScrollingBehavior = .groupPaging
         section.interGroupSpacing = 5
 
+        let headerSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .absolute(30))
+        section.boundarySupplementaryItems = [
+            .init(layoutSize: headerSize, elementKind: UICollectionView.elementKindSectionHeader, alignment: .top)
+        ]
+
         return section
     }
 
@@ -98,7 +108,10 @@ private extension GameInfoView {
         let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitems: [item])
 
         let section = NSCollectionLayoutSection(group: group)
-
+        let headerSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .absolute(30))
+        section.boundarySupplementaryItems = [
+            .init(layoutSize: headerSize, elementKind: UICollectionView.elementKindSectionHeader, alignment: .top)
+        ]
         return section
     }
 
@@ -110,7 +123,10 @@ private extension GameInfoView {
         let group = NSCollectionLayoutGroup.vertical(layoutSize: groupSize, subitems: [item])
 
         let section = NSCollectionLayoutSection(group: group)
-
+        let headerSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .absolute(30))
+        section.boundarySupplementaryItems = [
+            .init(layoutSize: headerSize, elementKind: UICollectionView.elementKindSectionHeader, alignment: .top)
+        ]
         return section
     }
 

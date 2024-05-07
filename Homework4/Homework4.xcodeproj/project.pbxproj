@@ -26,6 +26,7 @@
 		F9CC6D392BEA8000003EAFDA /* DescriptionCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9CC6D382BEA8000003EAFDA /* DescriptionCollectionCell.swift */; };
 		F9CC6D3B2BEA81CD003EAFDA /* GameEnviromentsCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9CC6D3A2BEA81CD003EAFDA /* GameEnviromentsCollectionCell.swift */; };
 		F9CC6D3D2BEA85CD003EAFDA /* GameInfoCollectionDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9CC6D3C2BEA85CD003EAFDA /* GameInfoCollectionDataSource.swift */; };
+		F9CC6D3F2BEA9711003EAFDA /* HeaderSuplementaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9CC6D3E2BEA9711003EAFDA /* HeaderSuplementaryView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -50,6 +51,7 @@
 		F9CC6D382BEA8000003EAFDA /* DescriptionCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DescriptionCollectionCell.swift; sourceTree = "<group>"; };
 		F9CC6D3A2BEA81CD003EAFDA /* GameEnviromentsCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameEnviromentsCollectionCell.swift; sourceTree = "<group>"; };
 		F9CC6D3C2BEA85CD003EAFDA /* GameInfoCollectionDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameInfoCollectionDataSource.swift; sourceTree = "<group>"; };
+		F9CC6D3E2BEA9711003EAFDA /* HeaderSuplementaryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderSuplementaryView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -124,6 +126,7 @@
 				F9CC6D382BEA8000003EAFDA /* DescriptionCollectionCell.swift */,
 				F9CC6D3A2BEA81CD003EAFDA /* GameEnviromentsCollectionCell.swift */,
 				F9CC6D3C2BEA85CD003EAFDA /* GameInfoCollectionDataSource.swift */,
+				F9CC6D3E2BEA9711003EAFDA /* HeaderSuplementaryView.swift */,
 			);
 			path = GameInfoPage;
 			sourceTree = "<group>";
@@ -220,6 +223,7 @@
 				F9CC6D332BEA7B8F003EAFDA /* GameInfoSection.swift in Sources */,
 				F9CC6D372BEA7DD6003EAFDA /* ScreenshotCollectionCell.swift in Sources */,
 				F9CC6D292BEA5634003EAFDA /* GamesCollectionDataSource.swift in Sources */,
+				F9CC6D3F2BEA9711003EAFDA /* HeaderSuplementaryView.swift in Sources */,
 				F9CC6D312BEA7B0F003EAFDA /* GameInfoViewController.swift in Sources */,
 				F9CC6D0D2BEA4129003EAFDA /* SceneDelegate.swift in Sources */,
 				F9CC6D392BEA8000003EAFDA /* DescriptionCollectionCell.swift in Sources */,
