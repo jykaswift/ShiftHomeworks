@@ -47,9 +47,6 @@ extension GameInfoViewController: UICollectionViewDelegate {
 
             let gameEnviroment = game.gameEnviroments[indexPath.row]
             let controller = GameEnviromentViewController(gameEnviroment: gameEnviroment)
-            if let sheet = controller.sheetPresentationController {
-                sheet.detents = [.medium()]
-            }
 
             self.present(controller, animated: true)
         }

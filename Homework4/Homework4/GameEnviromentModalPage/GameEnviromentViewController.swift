@@ -28,6 +28,11 @@ class GameEnviromentViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         gameEnviromentView.setupGameEnviroment(gameEnviroment)
+
+        if let sheet = presentationController as? UISheetPresentationController {
+            sheet.detents = [.medium(), .large()]
+            sheet.prefersEdgeAttachedInCompactHeight = true
+        }
     }
 
 }
