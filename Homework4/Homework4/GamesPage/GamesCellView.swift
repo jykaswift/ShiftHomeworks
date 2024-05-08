@@ -22,7 +22,7 @@ class GamesCellView: UICollectionViewCell {
 
     private lazy var gameNameLabel: UILabel = {
         let gameNameLabel = UILabel()
-        gameNameLabel.font = UIFont.systemFont(ofSize: 16)
+        gameNameLabel.font = Constants.labelFont
         gameNameLabel.translatesAutoresizingMaskIntoConstraints = false
         gameNameLabel.numberOfLines = 0
         gameNameLabel.textAlignment = .center

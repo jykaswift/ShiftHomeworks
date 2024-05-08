@@ -21,7 +21,7 @@ class GameEnviromentView: UIView {
     private lazy var availibilityTitleLabel: UILabel = {
         let availibilityTitleLabel = UILabel()
         availibilityTitleLabel.translatesAutoresizingMaskIntoConstraints = false
-        availibilityTitleLabel.font = UIFont.systemFont(ofSize: 16)
+        availibilityTitleLabel.font = Constants.labelFont
         availibilityTitleLabel.text = "Availibility: "
         return availibilityTitleLabel
     }()
@@ -29,7 +29,7 @@ class GameEnviromentView: UIView {
     private lazy var availibilityLabel: UILabel = {
         let availibilityLabel = UILabel()
         availibilityLabel.translatesAutoresizingMaskIntoConstraints = false
-        availibilityLabel.font = UIFont.systemFont(ofSize: 16)
+        availibilityLabel.font = Constants.labelFont
         return availibilityLabel
     }()
 

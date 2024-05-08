@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F918A4842BEBA1D400690C52 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = F918A4832BEBA1D400690C52 /* Constants.swift */; };
 		F9CC6D0B2BEA4129003EAFDA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9CC6D0A2BEA4129003EAFDA /* AppDelegate.swift */; };
 		F9CC6D0D2BEA4129003EAFDA /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9CC6D0C2BEA4129003EAFDA /* SceneDelegate.swift */; };
 		F9CC6D0F2BEA4129003EAFDA /* GamesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9CC6D0E2BEA4129003EAFDA /* GamesViewController.swift */; };
@@ -32,6 +33,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		F918A4832BEBA1D400690C52 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		F9CC6D072BEA4129003EAFDA /* Homework4.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Homework4.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F9CC6D0A2BEA4129003EAFDA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F9CC6D0C2BEA4129003EAFDA /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -69,6 +71,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		F918A4822BEBA1C400690C52 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				F918A4832BEBA1D400690C52 /* Constants.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
 		F9CC6CFE2BEA4129003EAFDA = {
 			isa = PBXGroup;
 			children = (
@@ -88,6 +98,7 @@
 		F9CC6D092BEA4129003EAFDA /* Homework4 */ = {
 			isa = PBXGroup;
 			children = (
+				F918A4822BEBA1C400690C52 /* Utils */,
 				F9D44C242BEAB219001AA857 /* GameEnviromentModalPage */,
 				F9CC6D2F2BEA7A7C003EAFDA /* Application */,
 				F9CC6D2E2BEA7A63003EAFDA /* GameInfoPage */,
@@ -259,6 +270,7 @@
 				F9CC6D202BEA42F0003EAFDA /* GamesView.swift in Sources */,
 				F9D44C262BEAB233001AA857 /* GameEnviromentViewController.swift in Sources */,
 				F9CC6D332BEA7B8F003EAFDA /* GameInfoSection.swift in Sources */,
+				F918A4842BEBA1D400690C52 /* Constants.swift in Sources */,
 				F9CC6D372BEA7DD6003EAFDA /* ScreenshotCollectionCell.swift in Sources */,
 				F9CC6D292BEA5634003EAFDA /* GamesCollectionDataSource.swift in Sources */,
 				F9CC6D3F2BEA9711003EAFDA /* HeaderSuplementaryView.swift in Sources */,
