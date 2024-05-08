@@ -11,7 +11,7 @@ import UIKit
 
 struct Game {
     let name: String
-    var avatar: UIImage? = UIImage(named: "no_image")
+    let avatar: UIImage?
     let description: String
     var screenshots: [UIImage?] = []
     var gameEnviroments: [GameEnviroment] = []

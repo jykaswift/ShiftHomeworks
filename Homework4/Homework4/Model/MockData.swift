@@ -55,6 +55,7 @@ class MockData {
     static func generateRandomGame() -> Game {
         Game(
             name: getRandomString(length: Int.random(in: 5...25)),
+            avatar: UIImage(named: "no_image"),
             description: getRandomString(length: Int.random(in: 20...100)),
             gameEnviroments: getRandomMockEnviroment()
         )
