@@ -39,7 +39,7 @@ extension GamesViewController: UICollectionViewDelegate {
 
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
 
-        let gameInfoVC = GameInfoViewController(game: dataSource[indexPath.item])
+        let gameInfoVC = GameInfoViewController(game: dataSource.games[indexPath.item])
         navigationController?.pushViewController(gameInfoVC, animated: true)
     }
 }

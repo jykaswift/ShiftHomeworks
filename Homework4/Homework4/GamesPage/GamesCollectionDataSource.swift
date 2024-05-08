@@ -12,7 +12,7 @@ class GamesCollectionDataSource: NSObject, UICollectionViewDataSource {
     let dataSource = DataSource.shared
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        dataSource.count
+        dataSource.games.count
     }
 
     func collectionView(
@@ -25,7 +25,7 @@ class GamesCollectionDataSource: NSObject, UICollectionViewDataSource {
         ) as? GamesCellView
         else { return UICollectionViewCell() }
 
-        cell.setupGame(dataSource[indexPath.item])
+        cell.setupGame(dataSource.games[indexPath.item])
         return cell
     }
 }

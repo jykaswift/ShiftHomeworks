@@ -13,14 +13,6 @@ class DataSource {
 
     private init() {}
 
-    let dataSource: [Game] = MockData.getMockData()
-
-    subscript(_ index: Int) -> Game {
-        dataSource[index]
-    }
-
-    var count: Int {
-        dataSource.count
-    }
+    let games: [Game] = MockData.getMockData()
 
 }
