@@ -15,10 +15,16 @@ class GamesCollectionDataSource: NSObject, UICollectionViewDataSource {
         dataSource.count
     }
 
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: GamesCellView.identifier, for: indexPath) as? GamesCellView
+    func collectionView(
+        _ collectionView: UICollectionView,
+        cellForItemAt indexPath: IndexPath
+    ) -> UICollectionViewCell {
+        guard let cell = collectionView.dequeueReusableCell(
+            withReuseIdentifier: GamesCellView.identifier,
+            for: indexPath
+        ) as? GamesCellView
         else { return UICollectionViewCell() }
-        
+
         cell.setupGame(dataSource[indexPath.item])
         return cell
     }

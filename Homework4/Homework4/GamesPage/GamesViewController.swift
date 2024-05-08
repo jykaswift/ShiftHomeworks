@@ -30,7 +30,6 @@ private extension GamesViewController {
     }
 }
 
-
 // MARK: Setup CollectionView Delegates
 extension GamesViewController: UICollectionViewDelegate {
     func setupCollectionViewDelegates() {

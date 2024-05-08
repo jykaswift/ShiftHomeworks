@@ -8,7 +8,7 @@
 import UIKit
 
 class GameInfoCollectionDataSource: NSObject, UICollectionViewDataSource {
-    
+
     let game: Game
     let sections = GameInfoSection.allCases
 
@@ -36,36 +36,50 @@ class GameInfoCollectionDataSource: NSObject, UICollectionViewDataSource {
         return numberOfItems
     }
 
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+    func collectionView(
+        _ collectionView: UICollectionView,
+        cellForItemAt indexPath: IndexPath
+    ) -> UICollectionViewCell {
         let gameInfoSection = sections[indexPath.section]
-
 
         switch gameInfoSection {
 
         case .screenshots:
-            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ScreenshotCollectionCell.identifier, for: indexPath) as? ScreenshotCollectionCell
+            guard let cell = collectionView.dequeueReusableCell(
+                withReuseIdentifier: ScreenshotCollectionCell.identifier,
+                for: indexPath
+            ) as? ScreenshotCollectionCell
             else { return UICollectionViewCell() }
             cell.screenshotImage = game.getScreenshots()[indexPath.row]
             return cell
         case .description:
-            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: DescriptionCollectionCell.identifier, for: indexPath) as? DescriptionCollectionCell
+            guard let cell = collectionView.dequeueReusableCell(
+                withReuseIdentifier: DescriptionCollectionCell.identifier,
+                for: indexPath
+            ) as? DescriptionCollectionCell
             else { return UICollectionViewCell() }
             cell.gameDescription = game.description
             return cell
         case .gameEnviroment:
-            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: GameEnviromentsCollectionCell.identifier, for: indexPath) as? GameEnviromentsCollectionCell
+            guard let cell = collectionView.dequeueReusableCell(
+                withReuseIdentifier: GameEnviromentsCollectionCell.identifier,
+                for: indexPath
+            ) as? GameEnviromentsCollectionCell
             else { return UICollectionViewCell() }
             cell.setupGameEnviroment(with: game.gameEnviroments[indexPath.row])
             return cell
         }
     }
-    
-    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
 
+    func collectionView(
+        _ collectionView: UICollectionView,
+        viewForSupplementaryElementOfKind kind: String,
+        at indexPath: IndexPath
+    ) -> UICollectionReusableView {
         switch kind {
         case UICollectionView.elementKindSectionHeader:
             guard let header = collectionView.dequeueReusableSupplementaryView(
-                ofKind: kind, 
+                ofKind: kind,
                 withReuseIdentifier: HeaderSuplementaryView.identifier,
                 for: indexPath
             ) as? HeaderSuplementaryView else { return UICollectionReusableView() }

@@ -14,11 +14,20 @@ class GameInfoView: UIView {
         let collectionLayout = createCompositionalLayout()
         let gameInfoCollectionView = UICollectionView(frame: .zero, collectionViewLayout: collectionLayout)
         gameInfoCollectionView.translatesAutoresizingMaskIntoConstraints = false
-        gameInfoCollectionView.register(ScreenshotCollectionCell.self, forCellWithReuseIdentifier: ScreenshotCollectionCell.identifier)
-        gameInfoCollectionView.register(DescriptionCollectionCell.self, forCellWithReuseIdentifier: DescriptionCollectionCell.identifier)
-        gameInfoCollectionView.register(GameEnviromentsCollectionCell.self, forCellWithReuseIdentifier: GameEnviromentsCollectionCell.identifier)
         gameInfoCollectionView.register(
-            HeaderSuplementaryView.self, 
+            ScreenshotCollectionCell.self,
+            forCellWithReuseIdentifier: ScreenshotCollectionCell.identifier
+        )
+        gameInfoCollectionView.register(
+            DescriptionCollectionCell.self,
+            forCellWithReuseIdentifier: DescriptionCollectionCell.identifier
+        )
+        gameInfoCollectionView.register(
+            GameEnviromentsCollectionCell.self,
+            forCellWithReuseIdentifier: GameEnviromentsCollectionCell.identifier
+        )
+        gameInfoCollectionView.register(
+            HeaderSuplementaryView.self,
             forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader,
             withReuseIdentifier: HeaderSuplementaryView.identifier
         )
@@ -30,13 +39,12 @@ class GameInfoView: UIView {
         super.init(frame: frame)
         setupUI()
     }
-    
+
     @available(*, unavailable)
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
 }
-
 
 // MARK: Setup UI
 private extension GameInfoView {
@@ -55,16 +63,15 @@ private extension GameInfoView {
             gameInfoCollectionView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor),
             gameInfoCollectionView.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor),
             gameInfoCollectionView.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor),
-            gameInfoCollectionView.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor),
+            gameInfoCollectionView.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor)
         ])
 
     }
 }
 
-
 // MARK: CollectionView Layout
 private extension GameInfoView {
-    
+
     enum GroupDirection {
         case vertical
         case horizontal
@@ -102,7 +109,7 @@ private extension GameInfoView {
         case .vertical:
             group = NSCollectionLayoutGroup.vertical(layoutSize: groupSize, subitems: [item])
         }
-        
+
         group.contentInsets = groupInsets
 
         let headerSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .absolute(30))
@@ -114,7 +121,6 @@ private extension GameInfoView {
         section.contentInsets = sectionInsets
         return section
     }
-
 
     func createScreenshotSection() -> NSCollectionLayoutSection {
         let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .fractionalHeight(1))

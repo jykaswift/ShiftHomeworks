@@ -8,9 +8,9 @@
 import Foundation
 import UIKit
 class DataSource {
-    
+
     static let shared = DataSource()
-    
+
     private init() {}
 
     let dataSource: [Game] = MockData.getMockData()

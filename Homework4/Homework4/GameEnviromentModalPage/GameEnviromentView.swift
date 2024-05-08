@@ -37,12 +37,12 @@ class GameEnviromentView: UIView {
         super.init(frame: frame)
         setupUI()
     }
-    
+
     @available(*, unavailable)
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
+
     func setupGameEnviroment(_ gameEnviroment: GameEnviroment) {
         enviromentTitleLabel.text = gameEnviroment.name.rawValue
 
@@ -84,7 +84,7 @@ private extension GameEnviromentView {
             availibilityTitleLabel.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: 5),
 
             availibilityLabel.leadingAnchor.constraint(equalTo: availibilityTitleLabel.trailingAnchor, constant: 5),
-            availibilityLabel.centerYAnchor.constraint(equalTo: availibilityTitleLabel.centerYAnchor),
+            availibilityLabel.centerYAnchor.constraint(equalTo: availibilityTitleLabel.centerYAnchor)
         ])
 
     }

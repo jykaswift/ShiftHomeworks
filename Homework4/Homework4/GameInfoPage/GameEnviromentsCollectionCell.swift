@@ -33,7 +33,6 @@ class GameEnviromentsCollectionCell: UICollectionViewCell {
 
 }
 
-
 // MARK: Setup UI
 private extension GameEnviromentsCollectionCell {
     func setupUI() {
@@ -53,4 +52,3 @@ private extension GameEnviromentsCollectionCell {
         ])
     }
 }
-

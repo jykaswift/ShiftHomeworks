@@ -40,7 +40,6 @@ class DescriptionCollectionCell: UICollectionViewCell {
 
 }
 
-
 // MARK: Setup UI
 private extension DescriptionCollectionCell {
     func setupUI() {
@@ -58,7 +57,7 @@ private extension DescriptionCollectionCell {
             descriptionLabel.topAnchor.constraint(equalTo: contentView.topAnchor),
             descriptionLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
             descriptionLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
-            descriptionLabel.bottomAnchor.constraint(lessThanOrEqualTo: contentView.bottomAnchor),
+            descriptionLabel.bottomAnchor.constraint(lessThanOrEqualTo: contentView.bottomAnchor)
         ])
     }
 }

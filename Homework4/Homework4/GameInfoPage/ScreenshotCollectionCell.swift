@@ -34,14 +34,13 @@ class ScreenshotCollectionCell: UICollectionViewCell {
         super.init(frame: frame)
         setupUI()
     }
-    
+
     @available(*, unavailable)
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
-}
 
+}
 
 // MARK: Setup UI
 private extension ScreenshotCollectionCell {
@@ -61,7 +60,7 @@ private extension ScreenshotCollectionCell {
             screenshotImageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
             screenshotImageView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
             screenshotImageView.heightAnchor.constraint(equalToConstant: 250),
-            screenshotImageView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
+            screenshotImageView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor)
         ])
     }
 }

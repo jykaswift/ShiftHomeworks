@@ -20,7 +20,7 @@ class GamesView: UIView {
         super.init(frame: frame)
         setupUI()
     }
-    
+
     @available(*, unavailable)
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
@@ -31,7 +31,10 @@ class GamesView: UIView {
 // MARK: CollectionView Layout
 private extension GamesView {
     func createLayout() -> UICollectionViewLayout {
-        let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .fractionalHeight(1))
+        let itemSize = NSCollectionLayoutSize(
+            widthDimension: .fractionalWidth(1),
+            heightDimension: .fractionalHeight(1)
+        )
 
         let item = NSCollectionLayoutItem(layoutSize: itemSize)
 
@@ -48,7 +51,6 @@ private extension GamesView {
         return UICollectionViewCompositionalLayout(section: section)
     }
 }
-
 
 // MARK: Setup UI
 private extension GamesView {
@@ -67,7 +69,7 @@ private extension GamesView {
             gamesCollectionView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor),
             gamesCollectionView.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor),
             gamesCollectionView.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor),
-            gamesCollectionView.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor),
+            gamesCollectionView.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor)
         ])
     }
 }

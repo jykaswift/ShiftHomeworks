@@ -24,7 +24,7 @@ class MockData {
         battleField.screenshots = [
             UIImage(named: "bf1_1"),
             UIImage(named: "bf1_2"),
-            UIImage(named: "bf1_3"),
+            UIImage(named: "bf1_3")
         ]
 
         var bordelands = Game(
@@ -39,13 +39,13 @@ class MockData {
 
         bordelands.screenshots = [
             UIImage(named: "br1_1"),
-            UIImage(named: "br1_2"),
+            UIImage(named: "br1_2")
         ]
-        
+
         data.append(battleField)
         data.append(bordelands)
 
-        for i in 1...20 {
+        for _ in 1...20 {
             data.append(generateRandomGame())
         }
 
@@ -65,16 +65,16 @@ class MockData {
             1: [
                 GameEnviroment(name: .crossover, availibility: .playable),
                 GameEnviroment(name: .rosseta2, availibility: .perfect),
-                GameEnviroment(name: .wine, availibility: .unplayble),
+                GameEnviroment(name: .wine, availibility: .unplayble)
             ],
 
             2: [
-                GameEnviroment(name: .crossover, availibility: .playable),
+                GameEnviroment(name: .crossover, availibility: .playable)
             ],
 
             3: [
                 GameEnviroment(name: .crossover, availibility: .playable),
-                GameEnviroment(name: .wine, availibility: .unplayble),
+                GameEnviroment(name: .wine, availibility: .unplayble)
             ]
         ]
 
@@ -82,18 +82,7 @@ class MockData {
     }
 
     static func getRandomString(length: Int) -> String {
-
-        let letters : NSString = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
-        let len = UInt32(letters.length)
-
-        var randomString = ""
-
-        for _ in 0 ..< length {
-            let rand = arc4random_uniform(len)
-            var nextChar = letters.character(at: Int(rand))
-            randomString += NSString(characters: &nextChar, length: 1) as String
-        }
-
-        return randomString
+      let letters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
+      return String((0..<length).map { _ in letters.randomElement()! })
     }
 }
