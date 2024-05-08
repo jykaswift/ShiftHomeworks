@@ -82,14 +82,40 @@ private extension GameInfoView {
             guard let self else { return nil }
             let section = GameInfoSection.allCases[sectionIndex]
 
+            let itemSize: NSCollectionLayoutSize
+            let groupSize: NSCollectionLayoutSize
+            var groupIntents: NSDirectionalEdgeInsets = .zero
+            var scrollBehavior: UICollectionLayoutSectionOrthogonalScrollingBehavior = .none
+            var interGroupSpacing: CGFloat = .zero
+            let groupDirection: GroupDirection
+
             switch section {
             case .screenshots:
-                return self.createScreenshotSection()
+                itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .fractionalHeight(1))
+                groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(0.97), heightDimension: .absolute(250))
+                scrollBehavior = .groupPaging
+                interGroupSpacing = 5
+                groupDirection = .horizontal
             case .description:
-                return self.createDescriptionSection()
+                itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .estimated(50))
+                groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .estimated(50))
+                groupIntents = .init(top: 0, leading: 10, bottom: 0, trailing: 10)
+                groupDirection = .horizontal
             case .gameEnviroment:
-                return self.createGameEnviromentSection()
+                itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .absolute(50))
+                groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .estimated(100))
+                groupDirection = .vertical
             }
+
+            return createLayoutSection(
+                itemSize: itemSize,
+                groupSize: groupSize,
+                groupDirection: groupDirection,
+                scrollBehavior: scrollBehavior,
+                interGroupSpacing: interGroupSpacing,
+                groupInsets: groupIntents
+            )
+
         }
     }
 
@@ -97,8 +123,10 @@ private extension GameInfoView {
         itemSize: NSCollectionLayoutSize,
         groupSize: NSCollectionLayoutSize,
         groupDirection: GroupDirection,
-        sectionInsets: NSDirectionalEdgeInsets,
-        groupInsets: NSDirectionalEdgeInsets = .zero
+        scrollBehavior: UICollectionLayoutSectionOrthogonalScrollingBehavior,
+        interGroupSpacing: CGFloat,
+        groupInsets: NSDirectionalEdgeInsets,
+        sectionInsets: NSDirectionalEdgeInsets = .init(top: 10, leading: 0, bottom: 10, trailing: 0)
     ) -> NSCollectionLayoutSection {
         let item = NSCollectionLayoutItem(layoutSize: itemSize)
         let group: NSCollectionLayoutGroup
@@ -113,55 +141,15 @@ private extension GameInfoView {
         group.contentInsets = groupInsets
 
         let headerSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .absolute(30))
+
         let section = NSCollectionLayoutSection(group: group)
         section.boundarySupplementaryItems = [
             .init(layoutSize: headerSize, elementKind: UICollectionView.elementKindSectionHeader, alignment: .top)
         ]
 
         section.contentInsets = sectionInsets
-        return section
-    }
-
-    func createScreenshotSection() -> NSCollectionLayoutSection {
-        let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .fractionalHeight(1))
-        let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(0.97), heightDimension: .absolute(250))
-
-        let section = createLayoutSection(
-            itemSize: itemSize,
-            groupSize: groupSize,
-            groupDirection: .horizontal,
-            sectionInsets: .init(top: 10, leading: 0, bottom: 10, trailing: 0)
-        )
-        section.orthogonalScrollingBehavior = .groupPaging
-        section.interGroupSpacing = 5
-
-        return section
-    }
-
-    func createDescriptionSection() -> NSCollectionLayoutSection {
-        let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .estimated(50))
-        let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .estimated(50))
-        let section = createLayoutSection(
-            itemSize: itemSize,
-            groupSize: groupSize,
-            groupDirection: .horizontal,
-            sectionInsets: .init(top: 10, leading: 0, bottom: 10, trailing: 0),
-            groupInsets: .init(top: 0, leading: 10, bottom: 0, trailing: 10)
-        )
-        return section
-    }
-
-    func createGameEnviromentSection() -> NSCollectionLayoutSection {
-        let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .absolute(50))
-        let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .estimated(100))
-
-        let section = createLayoutSection(
-            itemSize: itemSize,
-            groupSize: groupSize,
-            groupDirection: .vertical,
-            sectionInsets: .init(top: 10, leading: 0, bottom: 10, trailing: 0)
-        )
-
+        section.orthogonalScrollingBehavior = scrollBehavior
+        section.interGroupSpacing = interGroupSpacing
         return section
     }
 
