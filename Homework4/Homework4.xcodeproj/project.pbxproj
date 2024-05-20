@@ -114,9 +114,9 @@
 		F9303E362BF88B2A005B46A4 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
-				F9D44C242BEAB219001AA857 /* GameEnviromentModalScreen */,
-				F9CC6D2E2BEA7A63003EAFDA /* GameInfoScreen */,
 				F9CC6D1E2BEA41D5003EAFDA /* GamesScreen */,
+				F9CC6D2E2BEA7A63003EAFDA /* GameInfoScreen */,
+				F9D44C242BEAB219001AA857 /* GameEnviromentModalScreen */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -127,6 +127,40 @@
 				F95A5C342BFB535800A2AD23 /* GameInfoRouter.swift */,
 			);
 			path = Router;
+			sourceTree = "<group>";
+		};
+		F95A5C3C2BFB6ABC00A2AD23 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				F9CC6D1F2BEA42F0003EAFDA /* GamesView.swift */,
+				F9CC6D262BEA523A003EAFDA /* GamesCellView.swift */,
+				F9CC6D282BEA5634003EAFDA /* GamesCollectionDataSource.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		F95A5C3D2BFB6AC400A2AD23 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				F9CC6D0E2BEA4129003EAFDA /* GamesViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		F95A5C3E2BFB6B0000A2AD23 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				F9D44C252BEAB233001AA857 /* GameEnviromentViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		F95A5C3F2BFB6B0D00A2AD23 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				F9B3EE672BF6BA56006EE9CD /* GameEnviromentViewModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		F9B3EE642BF6B3C5006EE9CD /* Helpers */ = {
@@ -181,10 +215,8 @@
 		F9CC6D1E2BEA41D5003EAFDA /* GamesScreen */ = {
 			isa = PBXGroup;
 			children = (
-				F9CC6D0E2BEA4129003EAFDA /* GamesViewController.swift */,
-				F9CC6D1F2BEA42F0003EAFDA /* GamesView.swift */,
-				F9CC6D262BEA523A003EAFDA /* GamesCellView.swift */,
-				F9CC6D282BEA5634003EAFDA /* GamesCollectionDataSource.swift */,
+				F95A5C3D2BFB6AC400A2AD23 /* Controller */,
+				F95A5C3C2BFB6ABC00A2AD23 /* View */,
 			);
 			path = GamesScreen;
 			sourceTree = "<group>";
@@ -225,8 +257,8 @@
 		F9D44C242BEAB219001AA857 /* GameEnviromentModalScreen */ = {
 			isa = PBXGroup;
 			children = (
-				F9D44C252BEAB233001AA857 /* GameEnviromentViewController.swift */,
-				F9B3EE672BF6BA56006EE9CD /* GameEnviromentViewModel.swift */,
+				F95A5C3F2BFB6B0D00A2AD23 /* ViewModel */,
+				F95A5C3E2BFB6B0000A2AD23 /* View */,
 				F95A5C362BFB549500A2AD23 /* GameEnviromentAssembly.swift */,
 			);
 			path = GameEnviromentModalScreen;
