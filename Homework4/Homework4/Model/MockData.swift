@@ -7,6 +7,7 @@
 
 import Foundation
 import UIKit
+
 class MockData {
 
     static func getMockData() -> [Game] {
@@ -66,7 +67,7 @@ class MockData {
             1: [
                 GameEnviroment(name: .crossover, availibility: .playable),
                 GameEnviroment(name: .rosseta2, availibility: .perfect),
-                GameEnviroment(name: .wine, availibility: .unplayble)
+                GameEnviroment(name: .wine, availibility: .playable)
             ],
 
             2: [
@@ -75,7 +76,7 @@ class MockData {
 
             3: [
                 GameEnviroment(name: .crossover, availibility: .playable),
-                GameEnviroment(name: .wine, availibility: .unplayble)
+                GameEnviroment(name: .wine, availibility: .perfect)
             ]
         ]
 

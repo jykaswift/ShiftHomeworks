@@ -7,7 +7,6 @@
 
 import UIKit
 
-
 // MARK: Setup Collection View
 extension GameInfoViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     func setupCollectionViewDelegates() {
