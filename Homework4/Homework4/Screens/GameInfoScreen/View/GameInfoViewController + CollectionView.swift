@@ -1,55 +1,45 @@
 //
-//  GameInfoCollectionDataSource.swift
+//  GameInfoViewController + TableView.swift
 //  Homework4
 //
-//  Created by Евгений Борисов on 07.05.2024.
+//  Created by Евгений Борисов on 17.05.2024.
 //
 
 import UIKit
 
-class GameInfoCollectionDataSource: NSObject, UICollectionViewDataSource {
+// MARK: Setup Collection View
+extension GameInfoViewController: UICollectionViewDelegate, UICollectionViewDataSource {
+    func setupCollectionViewDelegates() {
+        gameInfoView.gameInfoCollectionView.dataSource = self
+        gameInfoView.gameInfoCollectionView.delegate = self
+    }
 
-    let game: Game
-    let sections = GameInfoSection.allCases
-
-    init(game: Game) {
-        self.game = game
-        super.init()
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        presenter.didClickCollectionAt(indexPath: indexPath)
     }
 
     func numberOfSections(in collectionView: UICollectionView) -> Int {
-        sections.count
+        presenter.numberOfSections()
     }
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        let gameInfoSection = sections[section]
-        let numberOfItems: Int
-        switch gameInfoSection {
-        case .screenshots:
-            numberOfItems = game.getScreenshots().count
-        case .description:
-            numberOfItems = 1
-        case .gameEnviroment:
-            numberOfItems = game.gameEnviroments.count
-        }
-
-        return numberOfItems
+        presenter.numberOfRows(in: section)
     }
 
     func collectionView(
         _ collectionView: UICollectionView,
         cellForItemAt indexPath: IndexPath
     ) -> UICollectionViewCell {
-        let gameInfoSection = sections[indexPath.section]
+        let gameInfoSection = presenter.getGameInfoSection(with: indexPath.section)
 
         switch gameInfoSection {
-
         case .screenshots:
             guard let cell = collectionView.dequeueReusableCell(
                 withReuseIdentifier: ScreenshotCollectionCell.identifier,
                 for: indexPath
             ) as? ScreenshotCollectionCell
             else { return UICollectionViewCell() }
+            let game = presenter.getGame()
             cell.screenshotImage = game.getScreenshots()[indexPath.row]
             return cell
         case .description:
@@ -58,7 +48,8 @@ class GameInfoCollectionDataSource: NSObject, UICollectionViewDataSource {
                 for: indexPath
             ) as? DescriptionCollectionCell
             else { return UICollectionViewCell() }
-            cell.gameDescription = game.description
+
+            cell.gameDescription = presenter.getGameDescription()
             return cell
         case .gameEnviroment:
             guard let cell = collectionView.dequeueReusableCell(
@@ -66,7 +57,8 @@ class GameInfoCollectionDataSource: NSObject, UICollectionViewDataSource {
                 for: indexPath
             ) as? GameEnviromentsCollectionCell
             else { return UICollectionViewCell() }
-            cell.setupGameEnviroment(with: game.gameEnviroments[indexPath.row])
+
+            cell.setupGameEnviroment(with: presenter.getGameEnviroment(with: indexPath.item))
             return cell
         }
     }
@@ -83,7 +75,7 @@ class GameInfoCollectionDataSource: NSObject, UICollectionViewDataSource {
                 withReuseIdentifier: HeaderSuplementaryView.identifier,
                 for: indexPath
             ) as? HeaderSuplementaryView else { return UICollectionReusableView() }
-            header.headerText = sections[indexPath.section].title
+            header.headerText = presenter.headerTitleFor(section: indexPath.section)
             return header
         default:
             return UICollectionViewCell()
@@ -91,3 +83,5 @@ class GameInfoCollectionDataSource: NSObject, UICollectionViewDataSource {
     }
 
 }
+
+

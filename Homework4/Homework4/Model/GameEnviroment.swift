@@ -6,11 +6,23 @@
 //
 
 import Foundation
+import UIKit
 
 enum GameAvailibility: String {
     case perfect = "Perfrect"
     case playable = "Playable"
     case unplayble = "Unplayable"
+
+    var color: UIColor {
+        switch(self) {
+        case .perfect:
+            UIColor.green
+        case .playable:
+            UIColor.orange
+        case .unplayble:
+            UIColor.red
+        }
+    }
 }
 
 enum GameEnviromentName: String {

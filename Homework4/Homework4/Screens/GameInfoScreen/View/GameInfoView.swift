@@ -13,7 +13,9 @@ class GameInfoView: UIView {
     lazy var gameInfoCollectionView: UICollectionView = {
         let collectionLayout = createCompositionalLayout()
         let gameInfoCollectionView = UICollectionView(frame: .zero, collectionViewLayout: collectionLayout)
+        gameInfoCollectionView.backgroundColor = .none
         gameInfoCollectionView.translatesAutoresizingMaskIntoConstraints = false
+
         gameInfoCollectionView.register(
             ScreenshotCollectionCell.self,
             forCellWithReuseIdentifier: ScreenshotCollectionCell.identifier
@@ -31,7 +33,7 @@ class GameInfoView: UIView {
             forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader,
             withReuseIdentifier: HeaderSuplementaryView.identifier
         )
-        gameInfoCollectionView.backgroundColor = .none
+
         return gameInfoCollectionView
     }()
 
